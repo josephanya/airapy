@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>607756848359-nvqummsp4p0uhb8mdprli14hj18km3em.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.607756848359-nvqummsp4p0uhb8mdprli14hj18km3em</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAfM___Uxl0I1sSqa4EnMvRtKpi3y775Sk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>607756848359</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>ng.lifebox.airapy</string>
+	<key>PROJECT_ID</key>
+	<string>airapy-3a10d</string>
+	<key>STORAGE_BUCKET</key>
+	<string>airapy-3a10d.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:607756848359:ios:17c1b8276926d3f31be642</string>
+	<key>DATABASE_URL</key>
+	<string>https://airapy-3a10d.firebaseio.com</string>
+</dict>
+</plist>

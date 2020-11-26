@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "607756848359",
+    "firebase_url": "https://airapy-3a10d.firebaseio.com",
+    "project_id": "airapy-3a10d",
+    "storage_bucket": "airapy-3a10d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:607756848359:android:3c17ddc85b2d40711be642",
+        "android_client_info": {
+          "package_name": "ng.lifebox.airapy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "607756848359-048hhoo58v1u82h075cp065po3fmn7th.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpgSj0ly_IflS_Vr5lphjNgnH_TbDJL5w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "607756848359-048hhoo58v1u82h075cp065po3fmn7th.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "607756848359-nvqummsp4p0uhb8mdprli14hj18km3em.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ng.lifebox.airapy"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
