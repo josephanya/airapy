@@ -1,6 +1,6 @@
 # airapy
 
-A new Flutter project.
+A digital pulmonary rehabilitation app for chronic respiratory diseases.
 
 ## Getting Started
 
