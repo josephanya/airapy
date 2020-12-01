@@ -1,11 +1,11 @@
-import 'package:airapy/theme/theme.dart';
 import 'package:flutter/material.dart';
 
-class DefaultCard extends StatelessWidget {
+class ProgressCard extends StatelessWidget {
   final Function onPress;
-  final Widget cardChild;
+  final Widget cardImage;
+  final Widget label;
 
-  DefaultCard({this.onPress, this.cardChild});
+  ProgressCard({this.onPress, this.cardImage, this.label});
 
   @override
   Widget build(BuildContext context) {
@@ -13,20 +13,24 @@ class DefaultCard extends StatelessWidget {
       onTap: onPress,
       child: Container(
           width: double.infinity,
-          padding: EdgeInsets.symmetric(vertical: 17.0, horizontal: 16),
+          padding: EdgeInsets.symmetric(vertical: 14.0, horizontal: 13),
           decoration: BoxDecoration(
-            color: white,
+            color: Colors.white,
             borderRadius: BorderRadius.circular(13.0),
             boxShadow: [
               BoxShadow(
                   color: Color(0xFFEEF4FC),
-                  offset: Offset(.0, .0),
+                  offset: Offset(0, 0),
                   blurRadius: 5.0,
                   spreadRadius: 0)
             ],
           ),
-          margin: EdgeInsets.symmetric(vertical: 5.0),
-          child: cardChild),
+          margin: EdgeInsets.symmetric(
+            vertical: 6,
+          ),
+          child: Row(
+            children: <Widget>[cardImage, SizedBox(width: 20), label],
+          )),
     );
   }
 }
