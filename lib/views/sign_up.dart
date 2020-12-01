@@ -1,3 +1,4 @@
+import 'package:airapy/utilities/bottom_navigator.dart';
 import 'package:airapy/views/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -127,7 +128,7 @@ class _SignUpState extends State<SignUp> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => Home(),
+                      builder: (context) => MyBottomNavigator(),
                     ),
                   );
                 }
