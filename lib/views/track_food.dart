@@ -1,3 +1,4 @@
+import 'package:airapy/theme/aircon_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:airapy/theme/theme.dart';
@@ -20,6 +21,7 @@ class _TrackFoodState extends State<TrackFood> {
     return Scaffold(
       appBar: CustomSecAppBar(
         title: 'Track food',
+        trailing: Icon(Aircon.camera),
       ),
       backgroundColor: background,
       body: SingleChildScrollView(
