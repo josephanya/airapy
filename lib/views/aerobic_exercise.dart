@@ -13,42 +13,48 @@ class AerobicExercise extends StatelessWidget {
       appBar: CustomSecAppBar(
         title: 'Aerobic exercise',
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 13),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            YMargin(10),
-            DefaultCard(
-              cardChild: Image.asset("images/jumping_jack.gif"),
-            ),
-            YMargin(30),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 5),
-              child: Text(
-                'Jumping jacks',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.symmetric(horizontal: 13),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              YMargin(10),
+              DefaultCard(
+                cardChild: Image.asset(
+                  "images/jumping_jack.gif",
+                  width: 25.0,
                 ),
               ),
-            ),
-            YMargin(20),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 5),
-              child: Text(
-                'Start with your feet together and your arms by your sides, then jump up with your feet apart and your hands over your head. Return to the start position and repeat.',
-                style: TextStyle(
-                  fontSize: 14,
+              YMargin(30),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 5),
+                child: Text(
+                  'Jumping jacks',
+                  style: TextStyle(
+                    fontSize: 21,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
-            ),
-            YMargin(30),
-            PrimaryButton(
-              onPressed: () {},
-              buttonText: 'Start',
-            )
-          ],
+              YMargin(20),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 5),
+                child: Text(
+                  'Start with your feet together and your arms by your sides, then jump up with your feet apart and your hands over your head. Return to the start position and repeat.',
+                  style: TextStyle(
+                    fontSize: 14.5,
+                    height: 1.35,
+                  ),
+                ),
+              ),
+              YMargin(30),
+              PrimaryButton(
+                onPressed: () {},
+                buttonText: 'Start',
+              )
+            ],
+          ),
         ),
       ),
     );
