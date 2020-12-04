@@ -29,9 +29,10 @@ class _ResetPasswordState extends State<ResetPassword> {
               'Forgot your password',
               textAlign: TextAlign.center,
               style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w700,
-                  color: primaryBlue),
+                fontSize: 24,
+                fontWeight: FontWeight.w700,
+                color: primaryBlue,
+              ),
             ),
             YMargin(30),
             Text(

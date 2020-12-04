@@ -138,25 +138,25 @@ class Home extends StatelessWidget {
                   ),
                 ),
               ),
-              TaskCard(
-                label: 'Read your lesson',
-                description: 'Lessons educate and inspire you',
-                image: CircleAvatar(
-                  child: Icon(
-                    Aircon.food,
-                    size: 25,
-                    color: primaryBlue,
-                  ),
-                  radius: 22,
-                  backgroundColor: secondaryBlue,
-                ),
-                onPress: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => CoachChat(),
-                  ),
-                ),
-              ),
+              // TaskCard(
+              //   label: 'Read your lesson',
+              //   description: 'Lessons educate and inspire you',
+              //   image: CircleAvatar(
+              //     child: Icon(
+              //       Aircon.food,
+              //       size: 25,
+              //       color: primaryBlue,
+              //     ),
+              //     radius: 22,
+              //     backgroundColor: secondaryBlue,
+              //   ),
+              //   onPress: () => Navigator.push(
+              //     context,
+              //     MaterialPageRoute(
+              //       builder: (context) => CoachChat(),
+              //     ),
+              //   ),
+              // ),
               TaskCard(
                 label: 'Prednisolone 10mg',
                 description: 'Take one tablet at 9:00 AM',
