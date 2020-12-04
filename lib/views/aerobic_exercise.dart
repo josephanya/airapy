@@ -30,7 +30,7 @@ class AerobicExercise extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 5),
                 child: Text(
-                  'Jumping jacks',
+                  'Jumping Jacks',
                   style: TextStyle(
                     fontSize: 21,
                     fontWeight: FontWeight.bold,
@@ -48,13 +48,17 @@ class AerobicExercise extends StatelessWidget {
                   ),
                 ),
               ),
-              YMargin(30),
-              PrimaryButton(
-                onPressed: () {},
-                buttonText: 'Start',
-              )
+              YMargin(80),
             ],
           ),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        child: PrimaryButton(
+          buttonText: 'Start',
+          onPressed: () {},
         ),
       ),
     );

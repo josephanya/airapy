@@ -1,6 +1,7 @@
 import 'package:airapy/theme/theme.dart';
 import 'package:airapy/utilities/margin.dart';
 import 'package:airapy/widgets/appbar.dart';
+import 'package:airapy/widgets/buttons.dart';
 import 'package:airapy/widgets/default_card.dart';
 import 'package:flutter/material.dart';
 
@@ -59,6 +60,14 @@ class SingingExercise extends StatelessWidget {
               )
             ],
           ),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        child: PrimaryButton(
+          buttonText: 'Start',
+          onPressed: () {},
         ),
       ),
     );
