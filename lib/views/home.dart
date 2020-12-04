@@ -1,6 +1,7 @@
 import 'package:airapy/theme/aircon_icons.dart';
 import 'package:airapy/theme/theme.dart';
 import 'package:airapy/utilities/margin.dart';
+import 'package:airapy/views/aerobic_exercise.dart';
 import 'package:airapy/views/coach_chat.dart';
 import 'package:airapy/views/profile.dart';
 import 'package:airapy/views/track_food.dart';
@@ -115,7 +116,7 @@ class Home extends StatelessWidget {
                 onPress: () => Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => CoachChat(),
+                    builder: (context) => AerobicExercise(),
                   ),
                 ),
               ),
