@@ -10,8 +10,8 @@ class SingingExercise extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: background,
-      appBar: CustomSecAppBar(
-        title: 'Singing exercise',
+      appBar: CustomTetAppBar(
+        title: '',
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -19,7 +19,7 @@ class SingingExercise extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              YMargin(10),
+              YMargin(5),
               DefaultCard(
                 cardChild: Column(
                   children: [

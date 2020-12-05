@@ -1,3 +1,4 @@
+import 'package:airapy/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:airapy/utilities/margin.dart';
 
@@ -67,6 +68,50 @@ class CustomSecAppBar extends StatelessWidget implements PreferredSizeWidget {
         ],
         color: Colors.white,
       ),
+      width: MediaQuery.of(context).size.width,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          GestureDetector(
+            onTap: () => Navigator.maybePop(context),
+            child: Icon(
+              Icons.navigate_before,
+              size: 35,
+              color: Colors.black,
+            ),
+          ),
+          Text(
+            title,
+            style: TextStyle(fontSize: 19, fontWeight: FontWeight.w700),
+          ),
+          trailing == null ? XMargin(35) : trailing,
+        ],
+      ),
+    );
+  }
+}
+
+class CustomTetAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final Widget trailing;
+  final String title;
+  const CustomTetAppBar({
+    this.title,
+    this.trailing,
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Size get preferredSize => Size.fromHeight(90);
+
+  @override
+  Widget build(BuildContext context) {
+    double statusBarHeight = MediaQuery.of(context).padding.top;
+    return Container(
+      padding: EdgeInsets.fromLTRB(15, statusBarHeight, 15, 0),
+      height: statusBarHeight + 55,
+      alignment: Alignment.center,
+      color: background,
       width: MediaQuery.of(context).size.width,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,

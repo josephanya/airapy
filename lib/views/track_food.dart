@@ -324,27 +324,30 @@ class _TrackFoodState extends State<TrackFood> {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0),
-        child: PrimaryButton(
-          buttonText: 'Save',
-          onPressed: () {
-            if (provider.formKey.currentState.validate()) {
-              provider.logFood(context);
-              Navigator.pop(context);
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => SuccessScreen(
-                    image: 'images/star.png',
-                    title: 'You have earned tribe points!',
-                    subtitle:
-                        'Earn more rewards by tracking your meals regularly',
+      floatingActionButton: Container(
+        color: background,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
+          child: PrimaryButton(
+            buttonText: 'Save',
+            onPressed: () {
+              if (provider.formKey.currentState.validate()) {
+                provider.logFood(context);
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SuccessScreen(
+                      image: 'images/star.png',
+                      title: 'You have earned tribe points!',
+                      subtitle:
+                          'Earn more rewards by tracking your meals regularly',
+                    ),
                   ),
-                ),
-              );
-            }
-          },
+                );
+              }
+            },
+          ),
         ),
       ),
     );

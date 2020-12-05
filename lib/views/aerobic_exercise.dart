@@ -10,8 +10,8 @@ class AerobicExercise extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: background,
-      appBar: CustomSecAppBar(
-        title: 'Aerobic exercise',
+      appBar: CustomTetAppBar(
+        title: '',
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -19,7 +19,7 @@ class AerobicExercise extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              YMargin(10),
+              YMargin(5),
               DefaultCard(
                 cardChild: Image.asset(
                   "images/jumping_jack.gif",
@@ -54,11 +54,14 @@ class AerobicExercise extends StatelessWidget {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0),
-        child: PrimaryButton(
-          buttonText: 'Start',
-          onPressed: () {},
+      floatingActionButton: Container(
+        color: background,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
+          child: PrimaryButton(
+            buttonText: 'Start',
+            onPressed: () {},
+          ),
         ),
       ),
     );
