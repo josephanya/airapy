@@ -4,8 +4,6 @@ import 'package:airapy/models/user_model.dart';
 
 class Auth {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
-  final Firestore _firestoreDatabase = Firestore.instance;
-  String userID;
 
   Future<FirebaseUser> signIn(String email, String password) async {
     FirebaseUser user = (await _firebaseAuth.signInWithEmailAndPassword(
@@ -34,13 +32,5 @@ class Auth {
         .collection('users')
         .document(userModel.userID)
         .setData(userModel.toJson());
-  }
-
-  Future<void> updateData(Map<String, dynamic> data) async {
-    var user = await FirebaseAuth.instance.currentUser();
-    return _firestoreDatabase
-        .collection('users')
-        .document(user.uid)
-        .setData(data);
   }
 }

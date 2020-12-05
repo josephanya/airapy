@@ -1,5 +1,7 @@
 import 'package:airapy/theme/theme.dart';
+import 'package:airapy/utilities/bottom_navigator.dart';
 import 'package:airapy/views/sign_in.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -23,12 +25,20 @@ class SplashScreenState extends State<SplashScreen> {
   }
 
   onDoneLoading() async {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => SignIn(),
-      ),
-    );
+    var user = await FirebaseAuth.instance.currentUser();
+    if (user == null) {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+          builder: (context) => SignIn(),
+        ),
+      );
+    } else if (user != null) {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+          builder: (context) => MyBottomNavigator(),
+        ),
+      );
+    }
   }
 
   @override

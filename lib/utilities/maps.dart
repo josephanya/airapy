@@ -39,7 +39,11 @@ const List<String> stateList = [
   'FCT',
 ];
 
-const List<String> genderList = ['Female', 'Male', 'Gender'];
+const List<String> genderList = [
+  'Female',
+  'Male',
+  'Gender',
+];
 
 const List<String> conditionList = [
   'Condition',

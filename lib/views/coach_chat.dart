@@ -1,12 +1,19 @@
+import 'package:airapy/models/user_model.dart';
 import 'package:airapy/theme/aircon_icons.dart';
 import 'package:airapy/theme/theme.dart';
 import 'package:airapy/utilities/margin.dart';
+import 'package:airapy/view_models/coach_chat_vm.dart';
 import 'package:airapy/widgets/appbar.dart';
+import 'package:airapy/widgets/message_bubble.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CoachChat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<CoachChatViewModel>(context);
+    var provider2 = Provider.of<UserModel>(context);
     return Scaffold(
       backgroundColor: background,
       appBar: CustomMainAppBar(
@@ -23,7 +30,45 @@ class CoachChat extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(),
+              StreamBuilder(
+                stream: Firestore.instance
+                    .collection('users')
+                    .document(provider2.userID)
+                    .collection('messages')
+                    .orderBy('timestamp', descending: true)
+                    .snapshots(),
+                builder: (context, snapshot) {
+                  if (!snapshot.hasData) {
+                    return Container();
+                  }
+                  final messages = snapshot.data.documents;
+                  List<MessageBubble> messageWidgets = [];
+                  for (var message in messages) {
+                    final messageText = message.data['text'];
+                    final messageSender = message.data['sender'];
+                    final messageIdTo = message.data['idTo'];
+                    final messageType = message.data['type'];
+                    final currentUser = provider2.userID;
+                    final messageWidget = MessageBubble(
+                      sender: messageSender,
+                      content: messageText,
+                      isMe: currentUser != messageIdTo,
+                      type: messageType,
+                    );
+                    messageWidgets.add(messageWidget);
+                  }
+                  return Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 10, horizontal: 10),
+                      child: ListView(
+                        reverse: true,
+                        children: messageWidgets,
+                      ),
+                    ),
+                  );
+                },
+              ),
               //input area
               Padding(
                 padding: const EdgeInsets.all(7.0),
@@ -42,7 +87,12 @@ class CoachChat extends StatelessWidget {
                           children: [
                             XMargin(13),
                             GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                provider.getImage(
+                                  provider2.coachID,
+                                  provider2.firstName,
+                                );
+                              },
                               child: Icon(
                                 Aircon.attach,
                                 size: 21,
@@ -83,7 +133,12 @@ class CoachChat extends StatelessWidget {
                       child: IconButton(
                         iconSize: 23,
                         icon: Icon(Aircon.send),
-                        onPressed: () {},
+                        onPressed: () {
+                          provider.addChatDocument(
+                            provider2.coachID,
+                            provider2.firstName,
+                          );
+                        },
                         color: Colors.white,
                       ),
                     ),

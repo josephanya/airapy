@@ -1,5 +1,6 @@
 import 'package:airapy/utilities/bottom_navigator.dart';
 import 'package:airapy/views/home.dart';
+import 'package:airapy/widgets/loader.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
@@ -34,7 +35,7 @@ class _SignUpState extends State<SignUp> {
             ),
             YMargin(50),
             Form(
-              key: provider.formKey1,
+              key: provider.formKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
@@ -121,19 +122,16 @@ class _SignUpState extends State<SignUp> {
                 ],
               ),
             ),
-            PrimaryButton(
-              buttonText: 'Sign up',
-              onPressed: () {
-                if (provider.formKey1.currentState.validate()) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => MyBottomNavigator(),
-                    ),
-                  );
-                }
-              },
-            ),
+            provider.isLoading
+                ? Loader()
+                : PrimaryButton(
+                    buttonText: 'Sign up',
+                    onPressed: () {
+                      if (provider.formKey.currentState.validate()) {
+                        provider.signUp(context);
+                      }
+                    },
+                  ),
             YMargin(60),
           ],
         ),

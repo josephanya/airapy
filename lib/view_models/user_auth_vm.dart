@@ -9,8 +9,7 @@ import 'package:airapy/widgets/custom_flashbar.dart';
 
 class SignUpViewModel with ChangeNotifier {
   Auth auth = Auth();
-  var formKey1 = GlobalKey<FormState>();
-  var formKey2 = GlobalKey<FormState>();
+  var formKey = GlobalKey<FormState>();
 
   final TextEditingController firstNameTEC = new TextEditingController();
   final TextEditingController lastNameTEC = new TextEditingController();

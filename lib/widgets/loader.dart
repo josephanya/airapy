@@ -1,3 +1,4 @@
+import 'package:airapy/theme/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:io' show Platform;
@@ -16,9 +17,10 @@ class Loader extends StatelessWidget {
           Container(
               width: 30,
               height: 30,
-              color: Colors.white,
-              child: Platform.isAndroid ? CircularProgressIndicator() : CupertinoActivityIndicator()
-            ),
+              color: background,
+              child: Platform.isAndroid
+                  ? CircularProgressIndicator()
+                  : CupertinoActivityIndicator()),
         ],
       ),
     );

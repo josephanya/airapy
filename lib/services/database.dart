@@ -22,39 +22,6 @@ class ServerDatabase {
   //       .add(data);
   // }
 
-  Future<void> logWeight({String weight}) async {
-    var user = await FirebaseAuth.instance.currentUser();
-    return await users.document(user.uid).collection('weight log').add(
-      {
-        'weight': weight,
-        "timestamp": FieldValue.serverTimestamp(),
-      },
-    );
-  }
-
-  Future<void> logBloodGlucose({String bloodGlucose, context}) async {
-    var user = await FirebaseAuth.instance.currentUser();
-    return await users.document(user.uid).collection('blood glucose log').add(
-      {
-        'bloodGlucose': bloodGlucose,
-        'context': context,
-        'timestamp': FieldValue.serverTimestamp(),
-      },
-    );
-  }
-
-  Future<void> logBloodPressure(
-      {String systolicBloodPressure, diastolicBloodPressure}) async {
-    var user = await FirebaseAuth.instance.currentUser();
-    return await users.document(user.uid).collection('blood pressure log').add(
-      {
-        'systolicBloodPressure': systolicBloodPressure,
-        'diastolicBloodPressure': diastolicBloodPressure,
-        'timestamp': FieldValue.serverTimestamp(),
-      },
-    );
-  }
-
   Future<void> logFood(
       {String mealType, food, healthiness, portionSize, photo}) async {
     var user = await FirebaseAuth.instance.currentUser();
@@ -71,38 +38,12 @@ class ServerDatabase {
     );
   }
 
-  Future<bool> getPaymentStatus() async {
-    var user = await FirebaseAuth.instance.currentUser();
-    return await users.document(user.uid).get().then((datasnapshot) {
-      var status = datasnapshot.data['hasPaid'];
-      return status;
-    });
-  }
-
   Future<bool> getActivationStatus() async {
     var user = await FirebaseAuth.instance.currentUser();
     return await users.document(user.uid).get().then((datasnapshot) {
       var status = datasnapshot.data['isActivated'];
       return status;
     });
-  }
-
-  Future<int> getAmount() async {
-    var user = await FirebaseAuth.instance.currentUser();
-    return await users.document(user.uid).get().then((datasnapshot) {
-      var amount = datasnapshot.data['amount'];
-      return amount;
-    });
-  }
-
-  Future addPaymentInfo({String cycle, int amount}) async {
-    var user = await FirebaseAuth.instance.currentUser();
-    return await users.document(user.uid).updateData(
-      {
-        'subscriptionAmount': amount,
-        'subscriptionCycle': cycle,
-      },
-    );
   }
 
   // Stream<UserModel> getUserProfileStream(String userID) {
@@ -122,15 +63,6 @@ class ServerDatabase {
         ? UserModel.fromSnapshot(querySnapshot)
         : null;
   }
-
-  // Future<CoachModel> getCoachProfile(String coachID) async {
-  //   var querySnapshot =
-  //       await Firestore.instance.collection('coaches').document(coachID).get();
-
-  //   return (querySnapshot.data != null)
-  //       ? CoachModel.fromSnapshot(querySnapshot)
-  //       : null;
-  // }
 
   Future<String> getMealPlan() async {
     var user = await FirebaseAuth.instance.currentUser();
