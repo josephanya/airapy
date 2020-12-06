@@ -1,14 +1,49 @@
+import 'dart:io';
+
 import 'package:airapy/services/database.dart';
 import 'package:airapy/widgets/custom_flashbar.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:fit_kit/fit_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:overlay_support/overlay_support.dart';
 import 'package:airapy/theme/theme.dart';
 
 class TrackFoodViewModel with ChangeNotifier {
   final TextEditingController foodTEC = new TextEditingController();
   var formKey = GlobalKey<FormState>();
+
+  File _image;
+
+  File get image => _image;
+
+  Future getImage() async {
+    final pickedFile = await ImagePicker().getImage(source: ImageSource.camera);
+    if (pickedFile != null) {
+      _image = File(pickedFile.path);
+      notifyListeners();
+    } else {
+      showOverlayNotification((context) {
+        return CustomFlashbar(
+          title: 'Error',
+          subtitle: 'No image selected',
+          action: () {},
+          color: red,
+        );
+      }, duration: Duration(milliseconds: 3000));
+    }
+  }
+
+  Future<String> uploadFile() async {
+    String fileName = DateTime.now().millisecondsSinceEpoch.toString();
+    StorageReference storageReference = FirebaseStorage().ref();
+    var uploadTask =
+        storageReference.child(fileName).putFile(File(_image.path));
+    var storageSnapshot = await uploadTask.onComplete;
+    var url = await storageSnapshot.ref.getDownloadURL();
+    return url;
+  }
 
   String _meal;
   String _healthiness;
