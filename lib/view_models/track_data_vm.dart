@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:airapy/services/database.dart';
 import 'package:airapy/widgets/custom_flashbar.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -19,7 +18,8 @@ class TrackFoodViewModel with ChangeNotifier {
   File get image => _image;
 
   Future getImage() async {
-    final pickedFile = await ImagePicker().getImage(source: ImageSource.camera);
+    final pickedFile =
+        await ImagePicker().getImage(source: ImageSource.gallery);
     if (pickedFile != null) {
       _image = File(pickedFile.path);
       notifyListeners();
@@ -33,6 +33,11 @@ class TrackFoodViewModel with ChangeNotifier {
         );
       }, duration: Duration(milliseconds: 3000));
     }
+  }
+
+  void clearImage() {
+    _image = null;
+    notifyListeners();
   }
 
   Future<String> uploadFile() async {

@@ -21,7 +21,12 @@ class _TrackFoodState extends State<TrackFood> {
     return Scaffold(
       appBar: CustomSecAppBar(
         title: 'Track food',
-        trailing: Icon(Aircon.camera),
+        trailing: GestureDetector(
+          child: Icon(Aircon.camera),
+          onTap: () {
+            provider.getImage();
+          },
+        ),
       ),
       backgroundColor: background,
       body: SingleChildScrollView(
@@ -31,6 +36,7 @@ class _TrackFoodState extends State<TrackFood> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              provider.image != null ? AttachedImage() : Container(),
               YMargin(30),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 7),
@@ -350,6 +356,62 @@ class _TrackFoodState extends State<TrackFood> {
           ),
         ),
       ),
+    );
+  }
+}
+
+class AttachedImage extends StatelessWidget {
+  const AttachedImage({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    var provider = Provider.of<TrackFoodViewModel>(context);
+    return Column(
+      children: [
+        YMargin(22),
+        Stack(
+          children: [
+            Container(
+              child: provider.image != null
+                  ? ClipRRect(
+                      borderRadius: BorderRadius.circular(10.0),
+                      child: Image.file(
+                        provider.image,
+                        fit: BoxFit.fitWidth,
+                      ),
+                    )
+                  : Container(),
+              height: 230.0,
+              width: double.infinity,
+            ),
+            Positioned(
+              top: 8,
+              right: 8,
+              child: GestureDetector(
+                onTap: () => provider.clearImage(),
+                child: Container(
+                  width: 28,
+                  height: 28,
+                  child: Icon(
+                    Aircon.cancel,
+                    size: 15,
+                    color: primaryBlue,
+                  ),
+                  padding: EdgeInsets.all(3.0),
+                  decoration: BoxDecoration(
+                    color: Color(0xFFDCE8F9).withOpacity(0.4),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(20.0),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
