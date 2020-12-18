@@ -345,9 +345,9 @@ class _TrackFoodState extends State<TrackFood> {
                   MaterialPageRoute(
                     builder: (context) => SuccessScreen(
                       image: 'images/star.png',
-                      title: 'You have earned tribe points!',
+                      title: 'Nice job tracking!',
                       subtitle:
-                          'Earn more rewards by tracking your meals regularly',
+                          'Tracking your meals helps your coach give you the best possible advice. Keep those details coming.',
                     ),
                   ),
                 );

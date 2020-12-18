@@ -102,12 +102,26 @@ class TrackFoodViewModel with ChangeNotifier {
 
   logFood(BuildContext context) async {
     try {
-      await ServerDatabase().logFood(
+      if (_image == null) {
+        await ServerDatabase().logFood(
           food: foodTEC.text,
           mealType: _meal,
           healthiness: _healthiness,
-          portionSize: _portionSize);
+          portionSize: _portionSize,
+          photo: '',
+        );
+      } else if (_image != null) {
+        var url = await uploadFile();
+        await ServerDatabase().logFood(
+          food: foodTEC.text,
+          mealType: _meal,
+          healthiness: _healthiness,
+          portionSize: _portionSize,
+          photo: url,
+        );
+      }
       foodTEC.text = '';
+      _image = null;
       notifyListeners();
     } catch (error) {
       print(error);
