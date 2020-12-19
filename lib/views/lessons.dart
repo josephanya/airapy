@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:airapy/models/user_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
@@ -9,7 +11,6 @@ import 'package:airapy/views/lesson_webview.dart';
 import 'package:airapy/widgets/appbar.dart';
 
 class Lessons extends StatefulWidget {
-  static const String id = 'lesson';
   @override
   _LessonsState createState() => _LessonsState();
 }
@@ -26,8 +27,7 @@ class _LessonsState extends State<Lessons> {
         padding: const EdgeInsets.symmetric(horizontal: 13),
         child: Column(
           children: <Widget>[
-            YMargin(20),
-            YMargin(20),
+            YMargin(25),
             LessonBody(),
           ],
         ),
@@ -111,34 +111,42 @@ class LessonBody extends StatelessWidget {
   Widget build(BuildContext context) {
     var provider = Provider.of<UserModel>(context);
     return Flexible(
-      child: StreamBuilder(
-        stream: Firestore.instance
-            .collection('users')
-            .document(provider.userID)
-            .collection('lessons')
-            .snapshots(),
-        builder: (context, snapshot) {
-          if (!snapshot.hasData) {
-            return Center(
-              child: Text('Your lessons will appear here'),
-            );
-          }
-          final lessons = snapshot.data.documents;
-          return GridView.builder(
-            itemCount: lessons.length,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2, crossAxisSpacing: 4.0, mainAxisSpacing: 4.0),
-            itemBuilder: (context, index) {
-              var data = lessons[index];
-              return SingleLesson(
-                title: data['title'],
-                thumbnail: data['thumbnail'],
-                url: data['url'],
-              );
-            },
-          );
-        },
-      ),
+      child: provider == null
+          ? Center(
+              child: Platform.isAndroid
+                  ? CircularProgressIndicator()
+                  : CupertinoActivityIndicator(),
+            )
+          : StreamBuilder(
+              stream: Firestore.instance
+                  .collection('users')
+                  .document(provider.userID)
+                  .collection('lessons')
+                  .snapshots(),
+              builder: (context, snapshot) {
+                if (!snapshot.hasData) {
+                  return Center(
+                    child: Text('Your lessons will appear here'),
+                  );
+                }
+                final lessons = snapshot.data.documents;
+                return GridView.builder(
+                  itemCount: lessons.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 4.0,
+                      mainAxisSpacing: 4.0),
+                  itemBuilder: (context, index) {
+                    var data = lessons[index];
+                    return SingleLesson(
+                      title: data['title'],
+                      thumbnail: data['thumbnail'],
+                      url: data['url'],
+                    );
+                  },
+                );
+              },
+            ),
     );
   }
 }

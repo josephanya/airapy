@@ -2,6 +2,8 @@ import 'package:airapy/theme/aircon_icons.dart';
 import 'package:airapy/theme/theme.dart';
 import 'package:airapy/utilities/margin.dart';
 import 'package:airapy/views/coach_chat.dart';
+import 'package:airapy/views/profile.dart';
+import 'package:airapy/views/progress_food.dart';
 import 'package:airapy/widgets/appbar.dart';
 import 'package:airapy/widgets/default_card.dart';
 import 'package:airapy/widgets/progress_card.dart';
@@ -26,7 +28,7 @@ class Progress extends StatelessWidget {
                 onPress: () => Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => CoachChat(),
+                    builder: (context) => Profile(),
                   ),
                 ),
                 cardChild: Row(
@@ -75,7 +77,7 @@ class Progress extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => CoachChat(),
+                      builder: (context) => FoodProgress(),
                     ),
                   );
                 },

@@ -36,7 +36,7 @@ class _TrackFoodState extends State<TrackFood> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              provider.image != null ? AttachedImage() : Container(),
+              provider.image != null ? AttachedPhoto() : Container(),
               YMargin(30),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 7),
@@ -360,8 +360,8 @@ class _TrackFoodState extends State<TrackFood> {
   }
 }
 
-class AttachedImage extends StatelessWidget {
-  const AttachedImage({
+class AttachedPhoto extends StatelessWidget {
+  const AttachedPhoto({
     Key key,
   }) : super(key: key);
 
