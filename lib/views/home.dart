@@ -219,7 +219,7 @@ class Home extends StatelessWidget {
                       });
                 },
               ),
-              YMargin(5),
+              YMargin(7),
               GestureDetector(
                 onTap: () => {
                   print('Add med reminder'),

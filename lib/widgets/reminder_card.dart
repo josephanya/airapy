@@ -41,21 +41,21 @@ class ReminderCard extends StatelessWidget {
       ),
       child: Container(
         width: double.infinity,
-        padding: EdgeInsets.symmetric(vertical: 13.0, horizontal: 16),
+        padding: EdgeInsets.symmetric(vertical: 15.5, horizontal: 16),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(6.0),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.shade300,
+              color: Color(0xFFEEF4FC),
               offset: Offset(0, 0),
-              blurRadius: 2.0,
+              blurRadius: 5.0,
               spreadRadius: 0,
-            ),
+            )
           ],
         ),
         margin: EdgeInsets.symmetric(
-          vertical: 5.0,
+          vertical: 6.5,
         ),
         child: Row(
           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -65,26 +65,26 @@ class ReminderCard extends StatelessWidget {
                 CircleAvatar(
                   child: Icon(
                     Aircon.medicine,
-                    size: 23,
+                    size: 25,
                     color: primaryBlue,
                   ),
-                  radius: 20,
+                  radius: 22,
                   backgroundColor: secondaryBlue,
                 ),
               ],
             ),
-            XMargin(16),
+            XMargin(17),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
                   '$name $dosage',
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 18,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                YMargin(4),
+                YMargin(5),
                 Text(
                   'Take $amount at ${dateTimeListToString(time)}',
                   style: TextStyle(
