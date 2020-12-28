@@ -1,15 +1,43 @@
+import 'package:airapy/models/reminder_model.dart';
 import 'package:airapy/theme/aircon_icons.dart';
 import 'package:airapy/theme/theme.dart';
 import 'package:airapy/utilities/margin.dart';
+import 'package:airapy/views/add_reminder.dart';
 import 'package:airapy/views/aerobic_exercise.dart';
 import 'package:airapy/views/coach_chat.dart';
 import 'package:airapy/views/profile.dart';
 import 'package:airapy/views/singing_exercise.dart';
 import 'package:airapy/views/track_food.dart';
+import 'package:airapy/widgets/reminder_card.dart';
 import 'package:airapy/widgets/task_card.dart';
+import 'package:fdottedline/fdottedline.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 class Home extends StatelessWidget {
+  String greeting() {
+    var hour = DateTime.now().hour;
+    if (hour < 12) {
+      return 'morning';
+    }
+    if (hour < 17) {
+      return 'afternoon';
+    }
+    return 'evening';
+  }
+
+  String meal() {
+    var hour = DateTime.now().hour;
+    if (hour < 12) {
+      return 'breakfast';
+    }
+    if (hour < 17) {
+      return 'lunch';
+    }
+    return 'dinner';
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +58,7 @@ class Home extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           Text(
-                            'Good morning,\nJoseph!',
+                            'Good ${greeting()},\nJoseph!',
                             style: TextStyle(
                                 fontSize: 27, fontWeight: FontWeight.w700),
                           ),
@@ -123,7 +151,7 @@ class Home extends StatelessWidget {
               ),
               TaskCard(
                 label: 'Log your meals',
-                description: 'Add breakfast',
+                description: 'Add ${meal()}',
                 image: CircleAvatar(
                   child: Icon(
                     Aircon.food,
@@ -159,23 +187,70 @@ class Home extends StatelessWidget {
               //     ),
               //   ),
               // ),
-              TaskCard(
-                label: 'Prednisolone 10mg',
-                description: 'Take one tablet at 9:00 AM',
-                image: CircleAvatar(
-                  child: Icon(
-                    Aircon.medicine,
-                    size: 25,
-                    color: primaryBlue,
-                  ),
-                  radius: 22,
-                  backgroundColor: secondaryBlue,
+              YMargin(40),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 7),
+                child: Text(
+                  "My medicines",
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
                 ),
-                onPress: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => CoachChat(),
+              ),
+              YMargin(7),
+              ValueListenableBuilder(
+                valueListenable:
+                    Hive.box<ReminderModel>('reminders').listenable(),
+                builder: (context, box, widget) {
+                  if (box.values.isEmpty) return Container();
+                  return ListView.builder(
+                      physics: NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: box.values.length,
+                      itemBuilder: (context, index) {
+                        final reminder = box.getAt(index);
+                        return reminder.isDeleted == true
+                            ? Container()
+                            : ReminderCard(
+                                name: reminder.name,
+                                dosage: reminder.dosage,
+                                amount: reminder.amount,
+                                time: reminder.time,
+                                index: index,
+                              );
+                      });
+                },
+              ),
+              YMargin(5),
+              GestureDetector(
+                onTap: () => {
+                  print('Add med reminder'),
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AddMedReminder(),
+                    ),
+                  )
+                },
+                child: FDottedLine(
+                  color: primaryBlue,
+                  width: double.infinity,
+                  dottedLength: 12.0,
+                  space: 6.0,
+                  strokeWidth: 1.5,
+                  child: Padding(
+                    padding:
+                        EdgeInsets.symmetric(vertical: 13.0, horizontal: 16),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.add,
+                          size: 40,
+                          color: primaryBlue,
+                        ),
+                      ],
+                    ),
                   ),
+                  corner: FDottedLineCorner.all(5),
                 ),
               ),
               YMargin(40),
