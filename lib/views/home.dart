@@ -257,7 +257,7 @@ class Home extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 7),
                 child: Text(
-                  "My meal plan",
+                  "Meal plan",
                   style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
                 ),
               ),

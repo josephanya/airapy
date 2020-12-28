@@ -1,5 +1,3 @@
-import 'package:airapy/utilities/bottom_navigator.dart';
-import 'package:airapy/views/home.dart';
 import 'package:airapy/widgets/loader.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';

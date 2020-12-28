@@ -140,7 +140,7 @@ class _AddMedReminderState extends State<AddMedReminder> {
                 padding: const EdgeInsets.symmetric(horizontal: 5),
                 child: GestureDetector(
                   child: Chip(
-                    backgroundColor: Colors.white,
+                    backgroundColor: background,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(5)),
                       side: BorderSide(color: primaryBlue),
@@ -212,12 +212,16 @@ class ScheduledTime extends StatelessWidget {
         Chip(
           label: Text(
             formatTimeOfDay(time),
-            style: TextStyle(color: primaryBlue, fontWeight: FontWeight.w500),
+            style: TextStyle(
+              color: primaryBlue,
+              fontWeight: FontWeight.w500,
+            ),
           ),
-          backgroundColor: primaryBlue,
+          backgroundColor: secondaryBlue,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(5)),
-            side: BorderSide(color: primaryBlue),
+            borderRadius: BorderRadius.all(
+              Radius.circular(5),
+            ),
           ),
           deleteIcon: Icon(Icons.cancel),
           onDeleted: () {

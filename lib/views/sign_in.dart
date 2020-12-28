@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:airapy/utilities/bottom_navigator.dart';
 import 'package:airapy/utilities/margin.dart';
 import 'package:airapy/view_models/user_auth_vm.dart';
 import 'package:airapy/theme/theme.dart';
 import 'package:airapy/utilities/validator.dart';
-import 'package:airapy/views/home.dart';
-import 'package:overlay_support/overlay_support.dart';
 import 'package:airapy/views/reset_password.dart';
 import 'package:airapy/views/sign_up.dart';
 import 'package:airapy/widgets/buttons.dart';
