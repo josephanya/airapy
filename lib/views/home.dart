@@ -16,6 +16,7 @@ import 'package:airapy/widgets/task_card.dart';
 import 'package:fdottedline/fdottedline.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
@@ -105,9 +106,26 @@ class Home extends StatelessWidget {
                           : CupertinoActivityIndicator(),
                     )
                   : provider2.isAuthorized
-                      ? TaskCard(
+                      ? StepsTaskCard(
                           label: 'Keep walking',
-                          description: 'You have taken 1359 steps today',
+                          description: RichText(
+                            textAlign: TextAlign.center,
+                            text: TextSpan(
+                                style: GoogleFonts.openSans(
+                                    textStyle: TextStyle(
+                                  color: grey,
+                                  fontSize: 14,
+                                )),
+                                children: <TextSpan>[
+                                  TextSpan(text: 'You have taken '),
+                                  TextSpan(
+                                      text: '2461',
+                                      style: GoogleFonts.openSans(
+                                          textStyle: TextStyle(
+                                              fontWeight: FontWeight.w700))),
+                                  TextSpan(text: ' steps today'),
+                                ]),
+                          ),
                           image: CircleAvatar(
                             child: Icon(
                               Aircon.steps,
@@ -125,25 +143,6 @@ class Home extends StatelessWidget {
                           ),
                         )
                       : StepsPermission(),
-              TaskCard(
-                label: 'Keep walking',
-                description: 'You have taken 1359 steps today',
-                image: CircleAvatar(
-                  child: Icon(
-                    Aircon.steps,
-                    size: 25,
-                    color: primaryBlue,
-                  ),
-                  radius: 22,
-                  backgroundColor: secondaryBlue,
-                ),
-                onPress: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => CoachChat(),
-                  ),
-                ),
-              ),
               TaskCard(
                 label: 'Breathing exercise',
                 description: 'Helps you breathe with less effort',
