@@ -1,6 +1,7 @@
 import 'package:airapy/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:airapy/utilities/margin.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CustomMainAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget trailing;
@@ -34,7 +35,8 @@ class CustomMainAppBar extends StatelessWidget implements PreferredSizeWidget {
         children: [
           Text(
             title,
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
+            style:
+                GoogleFonts.openSans(fontSize: 24, fontWeight: FontWeight.w700),
           ),
           trailing == null ? Container() : trailing,
         ],
@@ -83,7 +85,8 @@ class CustomSecAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
           Text(
             title,
-            style: TextStyle(fontSize: 19, fontWeight: FontWeight.w700),
+            style:
+                GoogleFonts.openSans(fontSize: 19, fontWeight: FontWeight.w700),
           ),
           trailing == null ? XMargin(35) : trailing,
         ],
@@ -127,7 +130,8 @@ class CustomTetAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
           Text(
             title,
-            style: TextStyle(fontSize: 19, fontWeight: FontWeight.w700),
+            style:
+                GoogleFonts.openSans(fontSize: 19, fontWeight: FontWeight.w700),
           ),
           trailing == null ? XMargin(35) : trailing,
         ],

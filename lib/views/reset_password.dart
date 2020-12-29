@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:airapy/utilities/margin.dart';
 import 'package:airapy/view_models/user_auth_vm.dart';
@@ -28,7 +29,7 @@ class _ResetPasswordState extends State<ResetPassword> {
             Text(
               'Forgot your password',
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: GoogleFonts.openSans(
                 fontSize: 24,
                 fontWeight: FontWeight.w700,
                 color: primaryBlue,
@@ -38,7 +39,7 @@ class _ResetPasswordState extends State<ResetPassword> {
             Text(
               'If you have forgotten your password, enter your email address and we will send you a link to reset your password',
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 15),
+              style: GoogleFonts.openSans(fontSize: 15),
             ),
             YMargin(50),
             Form(

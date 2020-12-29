@@ -87,7 +87,7 @@ class Home extends StatelessWidget {
                                   children: <Widget>[
                                     Text(
                                       'Good ${greeting()},\nJoseph!',
-                                      style: TextStyle(
+                                      style: GoogleFonts.openSans(
                                           fontSize: 27,
                                           fontWeight: FontWeight.w700),
                                     ),
@@ -123,7 +123,7 @@ class Home extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(horizontal: 7),
                           child: Text(
                             "Today's tasks",
-                            style: TextStyle(
+                            style: GoogleFonts.openSans(
                                 fontSize: 15, fontWeight: FontWeight.w700),
                           ),
                         ),
@@ -233,7 +233,7 @@ class Home extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(horizontal: 7),
                           child: Text(
                             "My medicines",
-                            style: TextStyle(
+                            style: GoogleFonts.openSans(
                                 fontSize: 15, fontWeight: FontWeight.w700),
                           ),
                         ),
@@ -300,7 +300,7 @@ class Home extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(horizontal: 7),
                           child: Text(
                             "Meal plan",
-                            style: TextStyle(
+                            style: GoogleFonts.openSans(
                                 fontSize: 15, fontWeight: FontWeight.w700),
                           ),
                         ),

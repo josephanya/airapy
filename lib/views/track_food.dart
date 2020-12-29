@@ -1,5 +1,6 @@
 import 'package:airapy/theme/aircon_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:airapy/theme/theme.dart';
 import 'package:airapy/utilities/margin.dart';
@@ -42,7 +43,8 @@ class _TrackFoodState extends State<TrackFood> {
                 padding: const EdgeInsets.symmetric(horizontal: 7),
                 child: Text(
                   'Meal',
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                  style: GoogleFonts.openSans(
+                      fontSize: 14, fontWeight: FontWeight.w600),
                 ),
               ),
               YMargin(7),
@@ -51,7 +53,7 @@ class _TrackFoodState extends State<TrackFood> {
                   ChoiceChip(
                     label: Text(
                       'Breakfast',
-                      style: TextStyle(
+                      style: GoogleFonts.openSans(
                         color: (provider.meal == 'Breakfast')
                             ? white
                             : primaryBlue,
@@ -74,7 +76,7 @@ class _TrackFoodState extends State<TrackFood> {
                   ChoiceChip(
                     label: Text(
                       'Lunch',
-                      style: TextStyle(
+                      style: GoogleFonts.openSans(
                         color: (provider.meal == 'Lunch') ? white : primaryBlue,
                         fontWeight: FontWeight.w600,
                       ),
@@ -95,7 +97,7 @@ class _TrackFoodState extends State<TrackFood> {
                   ChoiceChip(
                     label: Text(
                       'Dinner',
-                      style: TextStyle(
+                      style: GoogleFonts.openSans(
                           color:
                               (provider.meal == 'Dinner') ? white : primaryBlue,
                           fontWeight: FontWeight.w600),
@@ -116,7 +118,7 @@ class _TrackFoodState extends State<TrackFood> {
                   ChoiceChip(
                     label: Text(
                       'Snack',
-                      style: TextStyle(
+                      style: GoogleFonts.openSans(
                           color:
                               (provider.meal == 'Snack') ? white : primaryBlue,
                           fontWeight: FontWeight.w600),
@@ -140,7 +142,8 @@ class _TrackFoodState extends State<TrackFood> {
                 padding: const EdgeInsets.symmetric(horizontal: 7),
                 child: Text(
                   'Food',
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                  style: GoogleFonts.openSans(
+                      fontSize: 14, fontWeight: FontWeight.w600),
                 ),
               ),
               YMargin(7),
@@ -167,7 +170,8 @@ class _TrackFoodState extends State<TrackFood> {
                 padding: const EdgeInsets.symmetric(horizontal: 7),
                 child: Text(
                   'Healthiness',
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                  style: GoogleFonts.openSans(
+                      fontSize: 14, fontWeight: FontWeight.w600),
                 ),
               ),
               SizedBox(height: 10),
@@ -176,7 +180,7 @@ class _TrackFoodState extends State<TrackFood> {
                   ChoiceChip(
                     label: Text(
                       'Very healthy',
-                      style: TextStyle(
+                      style: GoogleFonts.openSans(
                           color: (provider.healthiness == 'Very healthy')
                               ? white
                               : primaryBlue,
@@ -199,7 +203,7 @@ class _TrackFoodState extends State<TrackFood> {
                   ChoiceChip(
                     label: Text(
                       'A little healthy',
-                      style: TextStyle(
+                      style: GoogleFonts.openSans(
                           color: (provider.healthiness == 'A little healthy')
                               ? white
                               : primaryBlue,
@@ -224,7 +228,7 @@ class _TrackFoodState extends State<TrackFood> {
                   ChoiceChip(
                     label: Text(
                       'Unhealthy',
-                      style: TextStyle(
+                      style: GoogleFonts.openSans(
                           color: (provider.healthiness == 'Unhealthy')
                               ? white
                               : primaryBlue,
@@ -250,7 +254,8 @@ class _TrackFoodState extends State<TrackFood> {
                 padding: const EdgeInsets.symmetric(horizontal: 7),
                 child: Text(
                   'Portion size',
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                  style: GoogleFonts.openSans(
+                      fontSize: 14, fontWeight: FontWeight.w600),
                 ),
               ),
               SizedBox(height: 10),
@@ -259,7 +264,7 @@ class _TrackFoodState extends State<TrackFood> {
                   ChoiceChip(
                     label: Text(
                       'Large',
-                      style: TextStyle(
+                      style: GoogleFonts.openSans(
                           color: (provider.portionSize == 'Large')
                               ? white
                               : primaryBlue,
@@ -281,7 +286,7 @@ class _TrackFoodState extends State<TrackFood> {
                   ChoiceChip(
                     label: Text(
                       'Mid-sized',
-                      style: TextStyle(
+                      style: GoogleFonts.openSans(
                           color: (provider.portionSize == 'Mid-sized')
                               ? white
                               : primaryBlue,
@@ -304,7 +309,7 @@ class _TrackFoodState extends State<TrackFood> {
                   ChoiceChip(
                     label: Text(
                       'Small',
-                      style: TextStyle(
+                      style: GoogleFonts.openSans(
                           color: (provider.portionSize == 'Small')
                               ? white
                               : primaryBlue,

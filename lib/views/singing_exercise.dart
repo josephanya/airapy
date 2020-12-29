@@ -4,6 +4,7 @@ import 'package:airapy/widgets/appbar.dart';
 import 'package:airapy/widgets/buttons.dart';
 import 'package:airapy/widgets/default_card.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SingingExercise extends StatelessWidget {
   @override
@@ -25,7 +26,7 @@ class SingingExercise extends StatelessWidget {
                   children: [
                     Text(
                       'Singing uses the lungs to provide airflow to produce musical words or sounds with the voice. Singing can require a lot of effort for muscle contraction and co-ordination. This may benefit people with chronic obstructive pulmonary disease (COPD) in a manner similar to that of breathing exercises.',
-                      style: TextStyle(
+                      style: GoogleFonts.openSans(
                         height: 1.35,
                         fontSize: 14.5,
                         fontWeight: FontWeight.w500,
@@ -34,7 +35,7 @@ class SingingExercise extends StatelessWidget {
                     YMargin(15),
                     Text(
                       'Select 4 songs you like and sing along using the lyrics shown on your screen.',
-                      style: TextStyle(
+                      style: GoogleFonts.openSans(
                         height: 1.35,
                         fontSize: 14.5,
                         fontWeight: FontWeight.w500,
@@ -50,7 +51,7 @@ class SingingExercise extends StatelessWidget {
                   children: [
                     Text(
                       'Songs',
-                      style: TextStyle(
+                      style: GoogleFonts.openSans(
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
                       ),

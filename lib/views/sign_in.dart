@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:airapy/utilities/margin.dart';
 import 'package:airapy/view_models/user_auth_vm.dart';
@@ -99,7 +100,7 @@ class _SignInState extends State<SignIn> {
             GestureDetector(
               child: Text(
                 'Forgot password?',
-                style: TextStyle(
+                style: GoogleFonts.openSans(
                     color: grey, fontSize: 14, fontWeight: FontWeight.w400),
               ),
               onTap: () => Navigator.push(
@@ -121,7 +122,7 @@ class _SignInState extends State<SignIn> {
           children: [
             Text(
               'Don’t have an account?',
-              style: TextStyle(
+              style: GoogleFonts.openSans(
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
                 color: grey,
@@ -137,7 +138,7 @@ class _SignInState extends State<SignIn> {
               ),
               child: Text(
                 'Sign up',
-                style: TextStyle(
+                style: GoogleFonts.openSans(
                   fontSize: 14,
                   fontWeight: FontWeight.w700,
                   color: primaryBlue,

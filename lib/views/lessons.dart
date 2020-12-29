@@ -4,6 +4,7 @@ import 'package:airapy/models/user_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:airapy/theme/theme.dart';
 import 'package:airapy/utilities/margin.dart';
@@ -126,7 +127,10 @@ class LessonBody extends StatelessWidget {
               builder: (context, snapshot) {
                 if (!snapshot.hasData) {
                   return Center(
-                    child: Text('Your lessons will appear here'),
+                    child: Text(
+                      'Your lessons will appear here',
+                      style: GoogleFonts.openSans(fontSize: 13),
+                    ),
                   );
                 }
                 final lessons = snapshot.data.documents;

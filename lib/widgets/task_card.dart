@@ -1,6 +1,7 @@
 import 'package:airapy/theme/theme.dart';
 import 'package:airapy/utilities/margin.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class TaskCard extends StatelessWidget {
   final Function onPress;
@@ -47,16 +48,17 @@ class TaskCard extends StatelessWidget {
                       children: <Widget>[
                         Text(
                           label,
-                          style: TextStyle(
+                          style: GoogleFonts.openSans(
                               fontSize: 18, fontWeight: FontWeight.w600),
                         ),
-                        YMargin(5),
+                        YMargin(4),
                         Text(
                           description,
-                          style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                              color: grey),
+                          style: GoogleFonts.openSans(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                            color: grey,
+                          ),
                         )
                       ],
                     ),
@@ -116,10 +118,10 @@ class StepsTaskCard extends StatelessWidget {
                       children: <Widget>[
                         Text(
                           label,
-                          style: TextStyle(
+                          style: GoogleFonts.openSans(
                               fontSize: 18, fontWeight: FontWeight.w600),
                         ),
-                        YMargin(5),
+                        YMargin(4),
                         description,
                       ],
                     ),

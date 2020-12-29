@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:airapy/models/user_model.dart';
 import 'package:airapy/theme/theme.dart';
@@ -62,7 +63,8 @@ class _EditProfileState extends State<EditProfile> {
                 GestureDetector(
                   child: Text(
                     'Change profile photo',
-                    style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
+                    style: GoogleFonts.openSans(
+                        fontSize: 13, fontWeight: FontWeight.w600),
                   ),
                   onTap: () => provider2.getImage(),
                 ),
@@ -73,7 +75,7 @@ class _EditProfileState extends State<EditProfile> {
                       padding: const EdgeInsets.symmetric(horizontal: 7),
                       child: Text(
                         'Bio',
-                        style: TextStyle(
+                        style: GoogleFonts.openSans(
                             fontSize: 14, fontWeight: FontWeight.w600),
                       ),
                     ),
@@ -107,7 +109,7 @@ class _EditProfileState extends State<EditProfile> {
                       padding: const EdgeInsets.symmetric(horizontal: 7),
                       child: Text(
                         'Location',
-                        style: TextStyle(
+                        style: GoogleFonts.openSans(
                             fontSize: 14, fontWeight: FontWeight.w600),
                       ),
                     ),

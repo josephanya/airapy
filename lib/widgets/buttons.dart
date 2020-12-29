@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:airapy/theme/theme.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class PrimaryButton extends StatelessWidget {
   final String buttonText;
@@ -16,7 +17,7 @@ class PrimaryButton extends StatelessWidget {
         onPressed: onPressed,
         child: Text(
           buttonText,
-          style: TextStyle(
+          style: GoogleFonts.openSans(
               fontSize: 15, color: Colors.white, fontWeight: FontWeight.w600),
         ),
         shape: RoundedRectangleBorder(
@@ -41,7 +42,7 @@ class TransparentButton extends StatelessWidget {
         onPressed: onPressed,
         child: Text(
           buttonText,
-          style: TextStyle(
+          style: GoogleFonts.openSans(
               color: primaryBlue, fontSize: 15, fontWeight: FontWeight.w600),
         ),
       ),

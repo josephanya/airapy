@@ -13,6 +13,7 @@ import 'package:airapy/widgets/progress_card.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class Progress extends StatelessWidget {
@@ -68,7 +69,7 @@ class Progress extends StatelessWidget {
                             children: [
                               Text(
                                 '${provider.firstName} ${provider.lastName}',
-                                style: TextStyle(
+                                style: GoogleFonts.openSans(
                                   fontSize: 18,
                                   fontWeight: FontWeight.w600,
                                 ),
@@ -76,7 +77,7 @@ class Progress extends StatelessWidget {
                               YMargin(5),
                               Text(
                                 'View profile',
-                                style: TextStyle(
+                                style: GoogleFonts.openSans(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w400,
                                   color: grey,
@@ -92,7 +93,7 @@ class Progress extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 7),
                       child: Text(
                         'My habits',
-                        style: TextStyle(
+                        style: GoogleFonts.openSans(
                             fontSize: 15, fontWeight: FontWeight.w700),
                       ),
                     ),
@@ -117,7 +118,7 @@ class Progress extends StatelessWidget {
                       ),
                       label: Text(
                         'Food and drinks',
-                        style: TextStyle(
+                        style: GoogleFonts.openSans(
                             fontSize: 16, fontWeight: FontWeight.w600),
                       ),
                     ),
@@ -141,7 +142,7 @@ class Progress extends StatelessWidget {
                       ),
                       label: Text(
                         'Steps',
-                        style: TextStyle(
+                        style: GoogleFonts.openSans(
                             fontSize: 16, fontWeight: FontWeight.w600),
                       ),
                     ),
@@ -150,7 +151,7 @@ class Progress extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 7),
                       child: Text(
                         'My exercises',
-                        style: TextStyle(
+                        style: GoogleFonts.openSans(
                             fontSize: 15, fontWeight: FontWeight.w700),
                       ),
                     ),
@@ -175,7 +176,7 @@ class Progress extends StatelessWidget {
                       ),
                       label: Text(
                         'Aerobic exercise',
-                        style: TextStyle(
+                        style: GoogleFonts.openSans(
                             fontSize: 16, fontWeight: FontWeight.w600),
                       ),
                     ),
@@ -199,7 +200,7 @@ class Progress extends StatelessWidget {
                       ),
                       label: Text(
                         'Breathing exercise',
-                        style: TextStyle(
+                        style: GoogleFonts.openSans(
                             fontSize: 16, fontWeight: FontWeight.w600),
                       ),
                     ),

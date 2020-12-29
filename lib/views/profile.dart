@@ -12,6 +12,7 @@ import 'package:airapy/widgets/default_card.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class Profile extends StatefulWidget {
@@ -74,15 +75,15 @@ class _ProfileState extends State<Profile> {
                                 children: [
                                   Text(
                                     '${provider.firstName} ${provider.lastName}',
-                                    style: TextStyle(
+                                    style: GoogleFonts.openSans(
                                       fontSize: 18,
-                                      fontWeight: FontWeight.bold,
+                                      fontWeight: FontWeight.w600,
                                     ),
                                   ),
                                   YMargin(4),
                                   Text(
                                     snapshot.data['location'],
-                                    style: TextStyle(
+                                    style: GoogleFonts.openSans(
                                       fontSize: 13,
                                       fontWeight: FontWeight.w400,
                                       color: grey,
@@ -96,15 +97,17 @@ class _ProfileState extends State<Profile> {
                         YMargin(13),
                         Row(
                           children: [
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 5),
-                              child: Text(
-                                snapshot.data['bio'],
-                                textAlign: TextAlign.start,
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w600,
+                            Flexible(
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 5),
+                                child: Text(
+                                  snapshot.data['bio'],
+                                  textAlign: TextAlign.start,
+                                  style: GoogleFonts.openSans(
+                                    fontSize: 14.3,
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                 ),
                               ),
                             ),
@@ -113,7 +116,7 @@ class _ProfileState extends State<Profile> {
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 10.0),
                           child: Divider(
-                            color: grey,
+                            color: lightGrey,
                           ),
                         ),
                         DefaultCard(
@@ -125,7 +128,7 @@ class _ProfileState extends State<Profile> {
                           ),
                           cardChild: Text(
                             'Edit profile',
-                            style: TextStyle(
+                            style: GoogleFonts.openSans(
                               fontSize: 15,
                               fontWeight: FontWeight.w600,
                             ),
@@ -140,7 +143,7 @@ class _ProfileState extends State<Profile> {
                           ),
                           cardChild: Text(
                             'Invite a friend',
-                            style: TextStyle(
+                            style: GoogleFonts.openSans(
                               fontSize: 15,
                               fontWeight: FontWeight.w600,
                             ),
@@ -155,7 +158,7 @@ class _ProfileState extends State<Profile> {
                           ),
                           cardChild: Text(
                             'Change password',
-                            style: TextStyle(
+                            style: GoogleFonts.openSans(
                               fontSize: 15,
                               fontWeight: FontWeight.w600,
                             ),
@@ -217,7 +220,7 @@ class _ProfileState extends State<Profile> {
                           },
                           cardChild: Text(
                             'Log out',
-                            style: TextStyle(
+                            style: GoogleFonts.openSans(
                               fontSize: 15,
                               fontWeight: FontWeight.w600,
                               color: red,

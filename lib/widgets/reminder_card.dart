@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:airapy/theme/aircon_icons.dart';
 import 'package:airapy/theme/theme.dart';
@@ -79,7 +80,7 @@ class ReminderCard extends StatelessWidget {
               children: <Widget>[
                 Text(
                   '$name $dosage',
-                  style: TextStyle(
+                  style: GoogleFonts.openSans(
                     fontSize: 18,
                     fontWeight: FontWeight.w600,
                   ),
@@ -87,7 +88,7 @@ class ReminderCard extends StatelessWidget {
                 YMargin(5),
                 Text(
                   'Take $amount at ${dateTimeListToString(time)}',
-                  style: TextStyle(
+                  style: GoogleFonts.openSans(
                       fontSize: 14, fontWeight: FontWeight.w400, color: grey),
                 )
               ],

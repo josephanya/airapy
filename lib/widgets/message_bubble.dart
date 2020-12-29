@@ -5,6 +5,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:overlay_support/overlay_support.dart';
 
 class MessageBubble extends StatelessWidget {
@@ -114,7 +115,7 @@ class MessageBubble extends StatelessWidget {
                           horizontal: 10, vertical: 10),
                       child: Text(
                         '$content',
-                        style: TextStyle(
+                        style: GoogleFonts.openSans(
                             color: isMe ? Colors.white : Colors.black87,
                             fontSize: 14,
                             fontWeight: FontWeight.w400),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:airapy/theme/theme.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SustainTextField extends StatelessWidget {
   final Widget suffix;
@@ -54,7 +55,7 @@ class SustainTextField extends StatelessWidget {
                       : isNumber
                           ? TextInputType.numberWithOptions(decimal: true)
                           : TextInputType.text,
-              style: TextStyle(
+              style: GoogleFonts.openSans(
                   fontWeight: FontWeight.w500,
                   fontSize: 14,
                   color: Colors.black),
@@ -65,7 +66,7 @@ class SustainTextField extends StatelessWidget {
                   hintText: hintText,
                   filled: true,
                   suffix: suffix,
-                  errorStyle: TextStyle(
+                  errorStyle: GoogleFonts.openSans(
                       fontWeight: FontWeight.w600,
                       fontSize: 11,
                       color: Colors.red),

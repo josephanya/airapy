@@ -9,6 +9,7 @@ import 'package:airapy/widgets/message_bubble.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class CoachChat extends StatelessWidget {
@@ -119,7 +120,8 @@ class CoachChat extends StatelessWidget {
                                       // controller: provider.chatFieldTEC,
                                       decoration: InputDecoration.collapsed(
                                         hintText: 'Type your message...',
-                                        hintStyle: TextStyle(color: grey),
+                                        hintStyle:
+                                            GoogleFonts.openSans(color: grey),
                                       ),
                                     ),
                                   ),

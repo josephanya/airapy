@@ -1,6 +1,8 @@
+import 'package:airapy/utilities/margin.dart';
 import 'package:flutter/material.dart';
 import 'package:airapy/theme/theme.dart';
 import 'package:airapy/views/lesson_webview.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class LessonCard extends StatefulWidget {
   final String lessonTitle;
@@ -63,9 +65,7 @@ class _LessonCardState extends State<LessonCard> {
                     )
                   ],
                 ),
-                SizedBox(
-                  width: 25,
-                ),
+                XMargin(25),
                 Row(
                   children: <Widget>[
                     Column(
@@ -73,7 +73,7 @@ class _LessonCardState extends State<LessonCard> {
                       children: <Widget>[
                         Text(
                           'Lesson ${widget.lessonNumber}',
-                          style: TextStyle(
+                          style: GoogleFonts.openSans(
                               fontWeight: FontWeight.w400,
                               fontSize: 13,
                               color: grey),
@@ -85,7 +85,7 @@ class _LessonCardState extends State<LessonCard> {
                           width: MediaQuery.of(context).size.width * 0.6,
                           child: Text(
                             widget.lessonTitle,
-                            style: TextStyle(
+                            style: GoogleFonts.openSans(
                                 fontWeight: FontWeight.w600, fontSize: 16),
                           ),
                         ),
@@ -94,7 +94,7 @@ class _LessonCardState extends State<LessonCard> {
                         ),
                         Text(
                           '${widget.lessonDuration} minutes',
-                          style: TextStyle(
+                          style: GoogleFonts.openSans(
                               fontWeight: FontWeight.w400,
                               fontSize: 13,
                               color: grey),

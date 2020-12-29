@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:airapy/theme/theme.dart';
@@ -30,13 +31,13 @@ class _ReadingsStepsState extends State<ReadingsSteps> {
                   children: [
                     Text(
                       'Date',
-                      style:
-                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                      style: GoogleFonts.openSans(
+                          fontSize: 15, fontWeight: FontWeight.bold),
                     ),
                     Text(
                       'steps',
-                      style:
-                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                      style: GoogleFonts.openSans(
+                          fontSize: 15, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
@@ -47,14 +48,14 @@ class _ReadingsStepsState extends State<ReadingsSteps> {
                   children: [
                     Text(
                       '22 Aug, 2020',
-                      style: TextStyle(
+                      style: GoogleFonts.openSans(
                           fontSize: 14,
                           fontWeight: FontWeight.w600,
                           color: black),
                     ),
                     Text(
                       '4721',
-                      style: TextStyle(
+                      style: GoogleFonts.openSans(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                           color: primaryBlue),

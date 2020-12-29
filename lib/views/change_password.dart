@@ -1,5 +1,6 @@
 import 'package:airapy/widgets/appbar.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:airapy/theme/theme.dart';
 import 'package:airapy/utilities/margin.dart';
@@ -32,7 +33,8 @@ class _ChangePasswordState extends State<ChangePassword> {
                   padding: const EdgeInsets.symmetric(horizontal: 7),
                   child: Text(
                     'Current password',
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                    style: GoogleFonts.openSans(
+                        fontSize: 14, fontWeight: FontWeight.w600),
                   ),
                 ),
               ],
@@ -63,7 +65,8 @@ class _ChangePasswordState extends State<ChangePassword> {
                   padding: const EdgeInsets.symmetric(horizontal: 7),
                   child: Text(
                     'New password',
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                    style: GoogleFonts.openSans(
+                        fontSize: 14, fontWeight: FontWeight.w600),
                   ),
                 ),
               ],

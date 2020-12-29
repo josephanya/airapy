@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:airapy/utilities/margin.dart';
 import 'package:airapy/widgets/buttons.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SuccessScreen extends StatelessWidget {
   final String title, subtitle, image;
@@ -31,7 +32,7 @@ class SuccessScreen extends StatelessWidget {
                 YMargin(50),
                 Text(
                   title,
-                  style: TextStyle(
+                  style: GoogleFonts.openSans(
                     fontSize: 17,
                     fontWeight: FontWeight.bold,
                   ),
@@ -40,7 +41,7 @@ class SuccessScreen extends StatelessWidget {
                 Text(
                   subtitle,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: GoogleFonts.openSans(
                     fontSize: 15,
                     fontWeight: FontWeight.w500,
                   ),

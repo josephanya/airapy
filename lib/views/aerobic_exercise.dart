@@ -4,6 +4,7 @@ import 'package:airapy/widgets/appbar.dart';
 import 'package:airapy/widgets/buttons.dart';
 import 'package:airapy/widgets/default_card.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AerobicExercise extends StatelessWidget {
   @override
@@ -31,7 +32,7 @@ class AerobicExercise extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 5),
                 child: Text(
                   'Jumping Jacks',
-                  style: TextStyle(
+                  style: GoogleFonts.openSans(
                     fontSize: 21,
                     fontWeight: FontWeight.bold,
                   ),
@@ -42,7 +43,7 @@ class AerobicExercise extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 5),
                 child: Text(
                   'Start with your feet together and your arms by your sides, then jump up with your feet apart and your hands over your head. Return to the start position and repeat.',
-                  style: TextStyle(
+                  style: GoogleFonts.openSans(
                     fontSize: 14.5,
                     height: 1.35,
                   ),

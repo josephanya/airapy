@@ -49,8 +49,9 @@ flutter:
 
   assets:
    - images/
+   - google_fonts/
 
   fonts:
-   - family:  Aircon
+   - family: Aircon
      fonts:
        - asset: fonts/Aircon.ttf

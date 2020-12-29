@@ -1,3 +1,4 @@
+import 'package:airapy/utilities/margin.dart';
 import 'package:flutter/material.dart';
 
 class ProgressCard extends StatelessWidget {
@@ -32,7 +33,7 @@ class ProgressCard extends StatelessWidget {
         child: Row(
           children: <Widget>[
             cardImage,
-            SizedBox(width: 20),
+            XMargin(20),
             label,
           ],
         ),

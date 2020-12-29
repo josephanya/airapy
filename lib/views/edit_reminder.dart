@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:airapy/utilities/margin.dart';
@@ -50,7 +51,8 @@ class _EditMedReminderState extends State<EditMedReminder> {
                 padding: const EdgeInsets.symmetric(horizontal: 7),
                 child: Text(
                   'Medicine name',
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                  style: GoogleFonts.openSans(
+                      fontSize: 14, fontWeight: FontWeight.w600),
                 ),
               ),
               YMargin(7),
@@ -77,7 +79,8 @@ class _EditMedReminderState extends State<EditMedReminder> {
                 padding: const EdgeInsets.symmetric(horizontal: 7),
                 child: Text(
                   'Dosage',
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                  style: GoogleFonts.openSans(
+                      fontSize: 14, fontWeight: FontWeight.w600),
                 ),
               ),
               YMargin(7),
@@ -104,7 +107,8 @@ class _EditMedReminderState extends State<EditMedReminder> {
                 padding: const EdgeInsets.symmetric(horizontal: 7),
                 child: Text(
                   'Amount',
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                  style: GoogleFonts.openSans(
+                      fontSize: 14, fontWeight: FontWeight.w600),
                 ),
               ),
               YMargin(7),
@@ -131,7 +135,10 @@ class _EditMedReminderState extends State<EditMedReminder> {
                 padding: const EdgeInsets.symmetric(horizontal: 7),
                 child: Text(
                   'Scheduled time',
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                  style: GoogleFonts.openSans(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
               YMargin(7),
@@ -167,7 +174,7 @@ class _EditMedReminderState extends State<EditMedReminder> {
                         XMargin(3),
                         Text(
                           'Add',
-                          style: TextStyle(
+                          style: GoogleFonts.openSans(
                               color: primaryBlue, fontWeight: FontWeight.w500),
                         )
                       ],
@@ -240,7 +247,7 @@ class ScheduledTime extends StatelessWidget {
         Chip(
           label: Text(
             formatTimeOfDay(time),
-            style: TextStyle(
+            style: GoogleFonts.openSans(
               color: primaryBlue,
               fontWeight: FontWeight.w500,
             ),
@@ -257,9 +264,7 @@ class ScheduledTime extends StatelessWidget {
           },
           deleteIconColor: primaryBlue,
         ),
-        SizedBox(
-          width: 15,
-        ),
+        XMargin(15),
       ],
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:airapy/theme/theme.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CustomFlashbar extends StatelessWidget {
   final String title, subtitle;
@@ -26,7 +27,7 @@ class CustomFlashbar extends StatelessWidget {
           child: ListTile(
             title: Text(
               title,
-              style: TextStyle(
+              style: GoogleFonts.openSans(
                 fontSize: 15,
                 color: white,
                 fontWeight: FontWeight.w600,
@@ -34,7 +35,7 @@ class CustomFlashbar extends StatelessWidget {
             ),
             subtitle: Text(
               subtitle,
-              style: TextStyle(
+              style: GoogleFonts.openSans(
                 fontSize: 13,
                 color: white,
                 fontWeight: FontWeight.w500,

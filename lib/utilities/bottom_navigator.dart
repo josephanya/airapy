@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:overlay_support/overlay_support.dart';
 import 'package:airapy/services/notifications_manager.dart';
 import 'package:airapy/theme/aircon_icons.dart';
@@ -137,7 +138,7 @@ class _MyBottomNavigatorState extends State<MyBottomNavigator> {
               icon: Icon(Aircon.home),
               title: Text(
                 'Home',
-                style: TextStyle(fontSize: 13),
+                style: GoogleFonts.openSans(fontSize: 13),
               ),
             ),
             BottomNavigationBarItem(
@@ -172,28 +173,28 @@ class _MyBottomNavigatorState extends State<MyBottomNavigator> {
                   : Icon(Aircon.chat),
               title: Text(
                 'Coach',
-                style: TextStyle(fontSize: 13),
+                style: GoogleFonts.openSans(fontSize: 13),
               ),
             ),
             // BottomNavigationBarItem(
             //   icon: Icon(Sustcon.group),
             //   title: Text(
             //     'Group',
-            //     style: TextStyle(fontSize: 13),
+            //     style: GoogleFonts.openSans(fontSize: 13),
             //   ),
             // ),
             BottomNavigationBarItem(
               icon: Icon(Aircon.progress),
               title: Text(
                 'Progress',
-                style: TextStyle(fontSize: 13),
+                style: GoogleFonts.openSans(fontSize: 13),
               ),
             ),
             BottomNavigationBarItem(
               icon: Icon(Aircon.lessons),
               title: Text(
                 'Lessons',
-                style: TextStyle(fontSize: 13),
+                style: GoogleFonts.openSans(fontSize: 13),
               ),
             ),
           ],

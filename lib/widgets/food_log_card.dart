@@ -1,5 +1,7 @@
+import 'package:airapy/utilities/margin.dart';
 import 'package:flutter/material.dart';
 import 'package:airapy/theme/theme.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'default_card.dart';
 import 'package:intl/intl.dart';
 
@@ -32,23 +34,24 @@ class FoodLogCard extends StatelessWidget {
             children: <Widget>[
               Text(
                 mealType,
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                style: GoogleFonts.openSans(
+                    fontSize: 16, fontWeight: FontWeight.w600),
               ),
               Text(
                 DateFormat.yMMMd().format(date),
-                style: TextStyle(
+                style: GoogleFonts.openSans(
                     fontSize: 12, color: grey, fontWeight: FontWeight.w500),
               ),
             ],
           ),
-          SizedBox(height: 8),
+          YMargin(7),
           Text(
             meal,
-            style: TextStyle(
+            style: GoogleFonts.openSans(
                 fontSize: 15, color: Colors.black, fontWeight: FontWeight.w600),
           ),
-          SizedBox(
-            height: 13,
+          YMargin(
+            13,
           ),
           Row(
             children: <Widget>[
@@ -57,38 +60,38 @@ class FoodLogCard extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     'HEALTHINESS',
-                    style: TextStyle(
+                    style: GoogleFonts.openSans(
                         fontSize: 12, color: grey, fontWeight: FontWeight.w500),
                   ),
-                  SizedBox(
-                    height: 5,
+                  YMargin(
+                    5,
                   ),
                   Text(
                     healthiness,
-                    style: TextStyle(
+                    style: GoogleFonts.openSans(
                         fontSize: 15,
                         color: Colors.black,
                         fontWeight: FontWeight.w600),
                   )
                 ],
               ),
-              SizedBox(
-                width: 90,
+              XMargin(
+                90,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
                     'PORTION SIZE',
-                    style: TextStyle(
+                    style: GoogleFonts.openSans(
                         fontSize: 12, color: grey, fontWeight: FontWeight.w500),
                   ),
-                  SizedBox(
-                    height: 5,
+                  YMargin(
+                    5,
                   ),
                   Text(
                     portionSize,
-                    style: TextStyle(
+                    style: GoogleFonts.openSans(
                         fontSize: 15,
                         color: Colors.black,
                         fontWeight: FontWeight.w600),
@@ -97,26 +100,26 @@ class FoodLogCard extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
-            height: 14,
+          YMargin(
+            14,
           ),
           Divider(
             height: 14,
           ),
-          SizedBox(
-            height: 5,
+          YMargin(
+            5,
           ),
           Text(
             'COACH’S NOTES',
-            style: TextStyle(
+            style: GoogleFonts.openSans(
                 fontSize: 12, color: grey, fontWeight: FontWeight.w500),
           ),
-          SizedBox(
-            height: 6,
+          YMargin(
+            6,
           ),
           Text(
             coachNote,
-            style: TextStyle(
+            style: GoogleFonts.openSans(
                 fontSize: 15, color: Colors.black, fontWeight: FontWeight.w600),
           )
         ],
