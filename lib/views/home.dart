@@ -111,22 +111,24 @@ class Home extends StatelessWidget {
                           description: RichText(
                             textAlign: TextAlign.center,
                             text: TextSpan(
-                                style: GoogleFonts.openSans(
-                                    textStyle: TextStyle(
+                              style: GoogleFonts.openSans(
+                                textStyle: TextStyle(
                                   color: grey,
                                   fontSize: 14,
-                                )),
-                                children: <TextSpan>[
-                                  TextSpan(text: 'You have taken '),
-                                  TextSpan(
-                                    text: '2461',
-                                    style: GoogleFonts.openSans(
-                                      textStyle: TextStyle(
-                                          fontWeight: FontWeight.w700),
-                                    ),
+                                ),
+                              ),
+                              children: <TextSpan>[
+                                TextSpan(text: 'You have taken '),
+                                TextSpan(
+                                  text: '2461',
+                                  style: GoogleFonts.openSans(
+                                    textStyle:
+                                        TextStyle(fontWeight: FontWeight.w700),
                                   ),
-                                  TextSpan(text: ' steps today'),
-                                ]),
+                                ),
+                                TextSpan(text: ' steps today'),
+                              ],
+                            ),
                           ),
                           image: CircleAvatar(
                             child: Icon(
