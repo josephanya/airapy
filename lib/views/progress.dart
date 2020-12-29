@@ -4,6 +4,7 @@ import 'package:airapy/utilities/margin.dart';
 import 'package:airapy/views/coach_chat.dart';
 import 'package:airapy/views/profile.dart';
 import 'package:airapy/views/progress_food.dart';
+import 'package:airapy/views/readings_steps.dart';
 import 'package:airapy/widgets/appbar.dart';
 import 'package:airapy/widgets/default_card.dart';
 import 'package:airapy/widgets/progress_card.dart';
@@ -100,7 +101,7 @@ class Progress extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => CoachChat(),
+                      builder: (context) => ReadingsSteps(),
                     ),
                   );
                 },
@@ -115,29 +116,6 @@ class Progress extends StatelessWidget {
                 ),
                 label: Text(
                   'Steps',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-                ),
-              ),
-              ProgressCard(
-                onPress: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => CoachChat(),
-                    ),
-                  );
-                },
-                cardImage: CircleAvatar(
-                  child: Icon(
-                    Aircon.medicine,
-                    size: 26,
-                    color: primaryBlue,
-                  ),
-                  radius: 22,
-                  backgroundColor: secondaryBlue,
-                ),
-                label: Text(
-                  'Medicines',
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                 ),
               ),
@@ -161,7 +139,7 @@ class Progress extends StatelessWidget {
                 },
                 cardImage: CircleAvatar(
                   child: Icon(
-                    Aircon.food,
+                    Aircon.aerobics,
                     size: 26,
                     color: primaryBlue,
                   ),
@@ -184,7 +162,7 @@ class Progress extends StatelessWidget {
                 },
                 cardImage: CircleAvatar(
                   child: Icon(
-                    Aircon.food,
+                    Aircon.breathing,
                     size: 26,
                     color: primaryBlue,
                   ),

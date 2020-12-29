@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:airapy/models/reminder_model.dart';
 import 'package:airapy/theme/aircon_icons.dart';
 import 'package:airapy/theme/theme.dart';
 import 'package:airapy/utilities/margin.dart';
+import 'package:airapy/view_models/track_data_vm.dart';
 import 'package:airapy/views/add_reminder.dart';
 import 'package:airapy/views/aerobic_exercise.dart';
 import 'package:airapy/views/coach_chat.dart';
@@ -11,9 +14,11 @@ import 'package:airapy/views/track_food.dart';
 import 'package:airapy/widgets/reminder_card.dart';
 import 'package:airapy/widgets/task_card.dart';
 import 'package:fdottedline/fdottedline.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:provider/provider.dart';
 
 class Home extends StatelessWidget {
   String greeting() {
@@ -40,6 +45,7 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var provider2 = Provider.of<StepsViewModel>(context);
     return Scaffold(
       backgroundColor: background,
       body: SafeArea(
@@ -92,6 +98,33 @@ class Home extends StatelessWidget {
                 ),
               ),
               YMargin(7),
+              provider2.isAuthorized == null
+                  ? Center(
+                      child: Platform.isAndroid
+                          ? CircularProgressIndicator()
+                          : CupertinoActivityIndicator(),
+                    )
+                  : provider2.isAuthorized
+                      ? TaskCard(
+                          label: 'Keep walking',
+                          description: 'You have taken 1359 steps today',
+                          image: CircleAvatar(
+                            child: Icon(
+                              Aircon.steps,
+                              size: 25,
+                              color: primaryBlue,
+                            ),
+                            radius: 22,
+                            backgroundColor: secondaryBlue,
+                          ),
+                          onPress: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CoachChat(),
+                            ),
+                          ),
+                        )
+                      : StepsPermission(),
               TaskCard(
                 label: 'Keep walking',
                 description: 'You have taken 1359 steps today',
@@ -168,25 +201,6 @@ class Home extends StatelessWidget {
                   ),
                 ),
               ),
-              // TaskCard(
-              //   label: 'Read your lesson',
-              //   description: 'Lessons educate and inspire you',
-              //   image: CircleAvatar(
-              //     child: Icon(
-              //       Aircon.food,
-              //       size: 25,
-              //       color: primaryBlue,
-              //     ),
-              //     radius: 22,
-              //     backgroundColor: secondaryBlue,
-              //   ),
-              //   onPress: () => Navigator.push(
-              //     context,
-              //     MaterialPageRoute(
-              //       builder: (context) => CoachChat(),
-              //     ),
-              //   ),
-              // ),
               YMargin(40),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 7),
@@ -278,6 +292,59 @@ class Home extends StatelessWidget {
               YMargin(8),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class StepsPermission extends StatelessWidget {
+  const StepsPermission({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    var provider = Provider.of<StepsViewModel>(context);
+    return GestureDetector(
+      onTap: () => provider.authorize(),
+      child: Container(
+        width: double.infinity,
+        padding: EdgeInsets.symmetric(vertical: 16.5, horizontal: 16),
+        decoration: BoxDecoration(
+          color: primaryBlue,
+          borderRadius: BorderRadius.circular(6.0),
+          boxShadow: [
+            BoxShadow(
+              color: Color(0xFFEEF4FC),
+              offset: Offset(.0, .0),
+              blurRadius: 5.0,
+              spreadRadius: 0,
+            )
+          ],
+        ),
+        margin: EdgeInsets.symmetric(
+          vertical: 6.5,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Turn on auto step tracking',
+              style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white),
+            ),
+            YMargin(5),
+            Text(
+              'Sync data from Apple health or Google fit app',
+              style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.white),
+            ),
+          ],
         ),
       ),
     );

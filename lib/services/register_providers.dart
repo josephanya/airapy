@@ -11,6 +11,7 @@ final registerProviders = <SingleChildWidget>[
   ChangeNotifierProvider(create: (_) => SignInViewModel()),
   ChangeNotifierProvider(create: (_) => ResetPasswordViewModel()),
   ChangeNotifierProvider(create: (_) => TrackFoodViewModel()),
+  ChangeNotifierProvider(create: (_) => StepsViewModel()),
   ChangeNotifierProvider(create: (_) => CoachChatViewModel()),
   ChangeNotifierProvider(create: (_) => ReminderViewModel()),
   FutureProvider(create: (_) => ServerDatabase().getUserProfile()),
