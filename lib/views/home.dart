@@ -119,10 +119,12 @@ class Home extends StatelessWidget {
                                 children: <TextSpan>[
                                   TextSpan(text: 'You have taken '),
                                   TextSpan(
-                                      text: '2461',
-                                      style: GoogleFonts.openSans(
-                                          textStyle: TextStyle(
-                                              fontWeight: FontWeight.w700))),
+                                    text: '2461',
+                                    style: GoogleFonts.openSans(
+                                      textStyle: TextStyle(
+                                          fontWeight: FontWeight.w700),
+                                    ),
+                                  ),
                                   TextSpan(text: ' steps today'),
                                 ]),
                           ),
