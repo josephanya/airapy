@@ -6,6 +6,8 @@ class UserModel {
       lastName,
       email,
       profilePic,
+      bio,
+      location,
       stepGoal,
       mealPlan,
       coachID;
@@ -19,6 +21,8 @@ class UserModel {
     this.lastName,
     this.email,
     this.profilePic,
+    this.bio,
+    this.location,
     this.stepGoal,
     this.mealPlan,
     this.coachID,
@@ -33,6 +37,8 @@ class UserModel {
         lastName = map['lastName'],
         email = map['email'],
         profilePic = map['profilePic'],
+        bio = map['bio'],
+        location = map['location'],
         stepGoal = map['stepGoal'],
         mealPlan = map['mealPlan'],
         coachID = map['coachID'],
@@ -45,6 +51,8 @@ class UserModel {
         lastName = json['lastName'],
         email = json['email'],
         profilePic = json['profilePic'],
+        bio = json['bio'],
+        location = json['location'],
         stepGoal = json['stepGoal'],
         mealPlan = json['mealPlan'],
         coachID = json['coachID'],
@@ -58,6 +66,8 @@ class UserModel {
     data['lastName'] = this.lastName;
     data['email'] = this.email;
     data['profilePic'] = this.profilePic;
+    data['bio'] = this.bio;
+    data['location'] = this.location;
     data['stepGoal'] = this.stepGoal;
     data['mealPlan'] = this.mealPlan;
     data['coachID'] = this.coachID;

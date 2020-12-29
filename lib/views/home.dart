@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:airapy/models/reminder_model.dart';
 import 'package:airapy/models/user_model.dart';
 import 'package:airapy/theme/aircon_icons.dart';
@@ -8,7 +7,6 @@ import 'package:airapy/utilities/margin.dart';
 import 'package:airapy/view_models/track_data_vm.dart';
 import 'package:airapy/views/add_reminder.dart';
 import 'package:airapy/views/aerobic_exercise.dart';
-import 'package:airapy/views/coach_chat.dart';
 import 'package:airapy/views/profile.dart';
 import 'package:airapy/views/singing_exercise.dart';
 import 'package:airapy/views/track_food.dart';
@@ -53,271 +51,278 @@ class Home extends StatelessWidget {
     return Scaffold(
       backgroundColor: background,
       body: SafeArea(
-        child: StreamBuilder(
-            stream: Firestore.instance
-                .collection('users')
-                .document(provider.userID)
-                .snapshots(),
-            builder: (context, snapshot) {
-              if (!snapshot.hasData) {
-                return Center(
-                  child: Platform.isAndroid
-                      ? CircularProgressIndicator()
-                      : CupertinoActivityIndicator(),
-                );
-              }
-              return SingleChildScrollView(
-                padding: const EdgeInsets.symmetric(horizontal: 13),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    YMargin(30),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 9),
-                      child: Container(
-                        child: Column(
-                          children: <Widget>[
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        child: provider == null
+            ? Center(
+                child: Platform.isAndroid
+                    ? CircularProgressIndicator()
+                    : CupertinoActivityIndicator(),
+              )
+            : StreamBuilder(
+                stream: Firestore.instance
+                    .collection('users')
+                    .document(provider.userID)
+                    .snapshots(),
+                builder: (context, snapshot) {
+                  if (!snapshot.hasData) {
+                    return Center(
+                      child: Platform.isAndroid
+                          ? CircularProgressIndicator()
+                          : CupertinoActivityIndicator(),
+                    );
+                  }
+                  return SingleChildScrollView(
+                    padding: const EdgeInsets.symmetric(horizontal: 13),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        YMargin(30),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 9),
+                          child: Container(
+                            child: Column(
                               children: <Widget>[
-                                Text(
-                                  'Good ${greeting()},\nJoseph!',
-                                  style: TextStyle(
-                                      fontSize: 27,
-                                      fontWeight: FontWeight.w700),
-                                ),
-                                GestureDetector(
-                                  child: CircleAvatar(
-                                    backgroundColor: Colors.grey[300],
-                                    radius: 28.0,
-                                    backgroundImage: snapshot
-                                                .data['profilePic'] !=
-                                            ''
-                                        ? NetworkImage(
-                                            snapshot.data['profilePic'],
-                                          )
-                                        : AssetImage('images/blank-avatar.png'),
-                                  ),
-                                  onTap: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => Profile(),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    Text(
+                                      'Good ${greeting()},\nJoseph!',
+                                      style: TextStyle(
+                                          fontSize: 27,
+                                          fontWeight: FontWeight.w700),
+                                    ),
+                                    GestureDetector(
+                                      child: CircleAvatar(
+                                        backgroundColor: Colors.grey[300],
+                                        radius: 28.0,
+                                        backgroundImage:
+                                            snapshot.data['profilePic'] != ''
+                                                ? NetworkImage(
+                                                    snapshot.data['profilePic'],
+                                                  )
+                                                : AssetImage(
+                                                    'images/blank-avatar.png'),
                                       ),
-                                    );
-                                  },
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => Profile(),
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                  ],
                                 ),
+                                YMargin(25),
                               ],
                             ),
-                            YMargin(25),
-                          ],
+                          ),
                         ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 7),
-                      child: Text(
-                        "Today's tasks",
-                        style: TextStyle(
-                            fontSize: 15, fontWeight: FontWeight.w700),
-                      ),
-                    ),
-                    YMargin(7),
-                    provider2.isAuthorized == null
-                        ? Center(
-                            child: Platform.isAndroid
-                                ? CircularProgressIndicator()
-                                : CupertinoActivityIndicator(),
-                          )
-                        : provider2.isAuthorized
-                            ? StepsTaskCard(
-                                label: 'Keep walking',
-                                description: RichText(
-                                  textAlign: TextAlign.center,
-                                  text: TextSpan(
-                                    style: GoogleFonts.openSans(
-                                      textStyle: TextStyle(
-                                        color: grey,
-                                        fontSize: 14,
-                                      ),
-                                    ),
-                                    children: <TextSpan>[
-                                      TextSpan(text: 'You have taken '),
-                                      TextSpan(
-                                        text: '2461',
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 7),
+                          child: Text(
+                            "Today's tasks",
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.w700),
+                          ),
+                        ),
+                        YMargin(7),
+                        provider2.isAuthorized == null
+                            ? Center(
+                                child: Platform.isAndroid
+                                    ? CircularProgressIndicator()
+                                    : CupertinoActivityIndicator(),
+                              )
+                            : provider2.isAuthorized
+                                ? StepsTaskCard(
+                                    label: 'Keep walking',
+                                    description: RichText(
+                                      textAlign: TextAlign.center,
+                                      text: TextSpan(
                                         style: GoogleFonts.openSans(
                                           textStyle: TextStyle(
-                                              fontWeight: FontWeight.w700),
+                                            color: grey,
+                                            fontSize: 14,
+                                          ),
                                         ),
+                                        children: <TextSpan>[
+                                          TextSpan(text: 'You have taken '),
+                                          TextSpan(
+                                            text: '2461',
+                                            style: GoogleFonts.openSans(
+                                              textStyle: TextStyle(
+                                                  fontWeight: FontWeight.w700),
+                                            ),
+                                          ),
+                                          TextSpan(text: ' steps today'),
+                                        ],
                                       ),
-                                      TextSpan(text: ' steps today'),
-                                    ],
-                                  ),
-                                ),
-                                image: CircleAvatar(
-                                  child: Icon(
-                                    Aircon.steps,
-                                    size: 25,
+                                    ),
+                                    image: CircleAvatar(
+                                      child: Icon(
+                                        Aircon.steps,
+                                        size: 25,
+                                        color: primaryBlue,
+                                      ),
+                                      radius: 22,
+                                      backgroundColor: secondaryBlue,
+                                    ),
+                                    onPress: () {},
+                                  )
+                                : StepsPermission(),
+                        TaskCard(
+                          label: 'Breathing exercise',
+                          description: 'Helps you breathe with less effort',
+                          image: CircleAvatar(
+                            child: Icon(
+                              Aircon.breathing,
+                              size: 25,
+                              color: primaryBlue,
+                            ),
+                            radius: 22,
+                            backgroundColor: secondaryBlue,
+                          ),
+                          onPress: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SingingExercise(),
+                            ),
+                          ),
+                        ),
+                        TaskCard(
+                          label: 'Aerobic exercise',
+                          description: 'Strengthens the heart and lungs',
+                          image: CircleAvatar(
+                            child: Icon(
+                              Aircon.aerobics,
+                              size: 25,
+                              color: primaryBlue,
+                            ),
+                            radius: 22,
+                            backgroundColor: secondaryBlue,
+                          ),
+                          onPress: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => AerobicExercise(),
+                            ),
+                          ),
+                        ),
+                        TaskCard(
+                          label: 'Log your meals',
+                          description: 'Add ${meal()}',
+                          image: CircleAvatar(
+                            child: Icon(
+                              Aircon.food,
+                              size: 25,
+                              color: primaryBlue,
+                            ),
+                            radius: 22,
+                            backgroundColor: secondaryBlue,
+                          ),
+                          onPress: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => TrackFood(),
+                            ),
+                          ),
+                        ),
+                        YMargin(40),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 7),
+                          child: Text(
+                            "My medicines",
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.w700),
+                          ),
+                        ),
+                        YMargin(7),
+                        ValueListenableBuilder(
+                          valueListenable:
+                              Hive.box<ReminderModel>('reminders').listenable(),
+                          builder: (context, box, widget) {
+                            if (box.values.isEmpty) return Container();
+                            return ListView.builder(
+                                physics: NeverScrollableScrollPhysics(),
+                                shrinkWrap: true,
+                                itemCount: box.values.length,
+                                itemBuilder: (context, index) {
+                                  final reminder = box.getAt(index);
+                                  return reminder.isDeleted == true
+                                      ? Container()
+                                      : ReminderCard(
+                                          name: reminder.name,
+                                          dosage: reminder.dosage,
+                                          amount: reminder.amount,
+                                          time: reminder.time,
+                                          index: index,
+                                        );
+                                });
+                          },
+                        ),
+                        YMargin(7),
+                        GestureDetector(
+                          onTap: () => {
+                            print('Add med reminder'),
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => AddMedReminder(),
+                              ),
+                            )
+                          },
+                          child: FDottedLine(
+                            color: primaryBlue,
+                            width: double.infinity,
+                            dottedLength: 12.0,
+                            space: 6.0,
+                            strokeWidth: 1.5,
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 13.0, horizontal: 16),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.add,
+                                    size: 40,
                                     color: primaryBlue,
                                   ),
-                                  radius: 22,
-                                  backgroundColor: secondaryBlue,
-                                ),
-                                onPress: () {},
-                              )
-                            : StepsPermission(),
-                    TaskCard(
-                      label: 'Breathing exercise',
-                      description: 'Helps you breathe with less effort',
-                      image: CircleAvatar(
-                        child: Icon(
-                          Aircon.breathing,
-                          size: 25,
-                          color: primaryBlue,
-                        ),
-                        radius: 22,
-                        backgroundColor: secondaryBlue,
-                      ),
-                      onPress: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => SingingExercise(),
-                        ),
-                      ),
-                    ),
-                    TaskCard(
-                      label: 'Aerobic exercise',
-                      description: 'Strengthens the heart and lungs',
-                      image: CircleAvatar(
-                        child: Icon(
-                          Aircon.aerobics,
-                          size: 25,
-                          color: primaryBlue,
-                        ),
-                        radius: 22,
-                        backgroundColor: secondaryBlue,
-                      ),
-                      onPress: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => AerobicExercise(),
-                        ),
-                      ),
-                    ),
-                    TaskCard(
-                      label: 'Log your meals',
-                      description: 'Add ${meal()}',
-                      image: CircleAvatar(
-                        child: Icon(
-                          Aircon.food,
-                          size: 25,
-                          color: primaryBlue,
-                        ),
-                        radius: 22,
-                        backgroundColor: secondaryBlue,
-                      ),
-                      onPress: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => TrackFood(),
-                        ),
-                      ),
-                    ),
-                    YMargin(40),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 7),
-                      child: Text(
-                        "My medicines",
-                        style: TextStyle(
-                            fontSize: 15, fontWeight: FontWeight.w700),
-                      ),
-                    ),
-                    YMargin(7),
-                    ValueListenableBuilder(
-                      valueListenable:
-                          Hive.box<ReminderModel>('reminders').listenable(),
-                      builder: (context, box, widget) {
-                        if (box.values.isEmpty) return Container();
-                        return ListView.builder(
-                            physics: NeverScrollableScrollPhysics(),
-                            shrinkWrap: true,
-                            itemCount: box.values.length,
-                            itemBuilder: (context, index) {
-                              final reminder = box.getAt(index);
-                              return reminder.isDeleted == true
-                                  ? Container()
-                                  : ReminderCard(
-                                      name: reminder.name,
-                                      dosage: reminder.dosage,
-                                      amount: reminder.amount,
-                                      time: reminder.time,
-                                      index: index,
-                                    );
-                            });
-                      },
-                    ),
-                    YMargin(7),
-                    GestureDetector(
-                      onTap: () => {
-                        print('Add med reminder'),
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => AddMedReminder(),
-                          ),
-                        )
-                      },
-                      child: FDottedLine(
-                        color: primaryBlue,
-                        width: double.infinity,
-                        dottedLength: 12.0,
-                        space: 6.0,
-                        strokeWidth: 1.5,
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(
-                              vertical: 13.0, horizontal: 16),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.add,
-                                size: 40,
-                                color: primaryBlue,
+                                ],
                               ),
-                            ],
+                            ),
+                            corner: FDottedLineCorner.all(5),
                           ),
                         ),
-                        corner: FDottedLineCorner.all(5),
-                      ),
-                    ),
-                    YMargin(40),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 7),
-                      child: Text(
-                        "Meal plan",
-                        style: TextStyle(
-                            fontSize: 15, fontWeight: FontWeight.w700),
-                      ),
-                    ),
-                    YMargin(7),
-                    TaskCard(
-                      label: 'Your meal plan',
-                      description: 'Made specifically for you ',
-                      image: CircleAvatar(
-                        child: Icon(
-                          Aircon.meal_plan,
-                          size: 25,
-                          color: primaryBlue,
+                        YMargin(42),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 7),
+                          child: Text(
+                            "Meal plan",
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.w700),
+                          ),
                         ),
-                        radius: 22,
-                        backgroundColor: secondaryBlue,
-                      ),
+                        YMargin(7),
+                        TaskCard(
+                          label: 'Your meal plan',
+                          description: 'Made specifically for you ',
+                          image: CircleAvatar(
+                            child: Icon(
+                              Aircon.meal_plan,
+                              size: 25,
+                              color: primaryBlue,
+                            ),
+                            radius: 22,
+                            backgroundColor: secondaryBlue,
+                          ),
+                        ),
+                        YMargin(8),
+                      ],
                     ),
-                    YMargin(8),
-                  ],
-                ),
-              );
-            }),
+                  );
+                }),
       ),
     );
   }

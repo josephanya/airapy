@@ -5,6 +5,7 @@ import 'package:airapy/services/auth.dart';
 import 'package:airapy/theme/theme.dart';
 import 'package:airapy/utilities/margin.dart';
 import 'package:airapy/views/change_password.dart';
+import 'package:airapy/views/edit_profile.dart';
 import 'package:airapy/views/sign_in.dart';
 import 'package:airapy/widgets/appbar.dart';
 import 'package:airapy/widgets/default_card.dart';
@@ -98,23 +99,14 @@ class _ProfileState extends State<Profile> {
                             Padding(
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 5),
-                              child: snapshot.data['bio'] == ''
-                                  ? Text(
-                                      'Edit your profile to add a bio',
-                                      style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w500,
-                                        color: grey,
-                                      ),
-                                    )
-                                  : Text(
-                                      snapshot.data['bio'],
-                                      textAlign: TextAlign.start,
-                                      style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    ),
+                              child: Text(
+                                snapshot.data['bio'],
+                                textAlign: TextAlign.start,
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
                             ),
                           ],
                         ),
@@ -128,7 +120,7 @@ class _ProfileState extends State<Profile> {
                           onPress: () => Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => SignIn(),
+                              builder: (context) => EditProfile(),
                             ),
                           ),
                           cardChild: Text(
@@ -143,7 +135,7 @@ class _ProfileState extends State<Profile> {
                           onPress: () => Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => SignIn(),
+                              builder: (context) => EditProfile(),
                             ),
                           ),
                           cardChild: Text(

@@ -37,6 +37,8 @@ class SignUpViewModel with ChangeNotifier {
         lastName: lastNameTEC.text,
         email: emailTEC.text,
         profilePic: '',
+        bio: 'Edit your profile to add a bio',
+        location: 'Add your location',
         stepGoal: '',
         coachID: '87KgDALRWfOHZ2r3QWZcgPeZgB53',
         mealPlan: '',
