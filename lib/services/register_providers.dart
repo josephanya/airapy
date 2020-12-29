@@ -1,4 +1,5 @@
 import 'package:airapy/services/database.dart';
+import 'package:airapy/view_models/change_password_vm.dart';
 import 'package:airapy/view_models/coach_chat_vm.dart';
 import 'package:airapy/view_models/reminders_vm.dart';
 import 'package:airapy/view_models/track_data_vm.dart';
@@ -14,5 +15,6 @@ final registerProviders = <SingleChildWidget>[
   ChangeNotifierProvider(create: (_) => StepsViewModel()),
   ChangeNotifierProvider(create: (_) => CoachChatViewModel()),
   ChangeNotifierProvider(create: (_) => ReminderViewModel()),
+  ChangeNotifierProvider(create: (_) => ChangePasswordViewModel()),
   FutureProvider(create: (_) => ServerDatabase().getUserProfile()),
 ];
