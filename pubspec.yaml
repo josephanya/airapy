@@ -35,6 +35,7 @@ dependencies:
   advance_pdf_viewer: ^1.2.0
   flutter_svg: ^0.19.1
   fdottedline: ^1.0.1
+  social_share: ^2.0.5
 
 dev_dependencies:
   flutter_test:

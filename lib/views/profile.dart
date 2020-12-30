@@ -6,14 +6,18 @@ import 'package:airapy/theme/theme.dart';
 import 'package:airapy/utilities/margin.dart';
 import 'package:airapy/views/change_password.dart';
 import 'package:airapy/views/edit_profile.dart';
+import 'package:airapy/views/invite_friend.dart';
 import 'package:airapy/views/sign_in.dart';
 import 'package:airapy/widgets/appbar.dart';
+import 'package:airapy/widgets/custom_flashbar.dart';
 import 'package:airapy/widgets/default_card.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:overlay_support/overlay_support.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Profile extends StatefulWidget {
   @override
@@ -21,6 +25,21 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+  launchURL(String url, {BuildContext context}) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      showOverlayNotification((context) {
+        return CustomFlashbar(
+          title: 'An error occured',
+          subtitle: 'Please try again later',
+          action: () {},
+          color: red,
+        );
+      }, duration: Duration(milliseconds: 3000));
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<UserModel>(context);
@@ -94,7 +113,7 @@ class _ProfileState extends State<Profile> {
                             ],
                           ),
                         ),
-                        YMargin(13),
+                        YMargin(15),
                         Row(
                           children: [
                             Flexible(
@@ -114,7 +133,7 @@ class _ProfileState extends State<Profile> {
                           ],
                         ),
                         Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 10.0),
+                          padding: const EdgeInsets.symmetric(vertical: 15.0),
                           child: Divider(
                             color: lightGrey,
                           ),
@@ -138,7 +157,7 @@ class _ProfileState extends State<Profile> {
                           onPress: () => Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => EditProfile(),
+                              builder: (context) => InviteFriend(),
                             ),
                           ),
                           cardChild: Text(
@@ -149,21 +168,21 @@ class _ProfileState extends State<Profile> {
                             ),
                           ),
                         ),
-                        DefaultCard(
-                          onPress: () => Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => ChangePassword(),
-                            ),
-                          ),
-                          cardChild: Text(
-                            'Change password',
-                            style: GoogleFonts.openSans(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
+                        // DefaultCard(
+                        //   onPress: () => Navigator.push(
+                        //     context,
+                        //     MaterialPageRoute(
+                        //       builder: (context) => ChangePassword(),
+                        //     ),
+                        //   ),
+                        //   cardChild: Text(
+                        //     'Change password',
+                        //     style: GoogleFonts.openSans(
+                        //       fontSize: 15,
+                        //       fontWeight: FontWeight.w600,
+                        //     ),
+                        //   ),
+                        // ),
                         // DefaultCard(
                         //   onPress: () => Navigator.push(
                         //     context,
@@ -179,35 +198,34 @@ class _ProfileState extends State<Profile> {
                         //     ),
                         //   ),
                         // ),
-                        // DefaultCard(
-                        //   onPress: () {
-                        //     const url =
-                        //         'https://sustain.lifebox.ng/terms-of-service';
-                        //     launchURL(url, context: context);
-                        //   },
-                        //   cardChild: Text(
-                        //     'Terms of service',
-                        //     style: TextStyle(
-                        //       fontSize: 16,
-                        //       fontWeight: FontWeight.w600,
-                        //     ),
-                        //   ),
-                        // ),
-                        // DefaultCard(
-                        //   onPress: () {
-                        //     const url =
-                        //         'https://sustain.lifebox.ng/privacy-policy';
-                        //     launchURL(url, context: context);
-                        //   },
-                        //   cardChild: Text(
-                        //     'Privacy policy',
-                        //     style: TextStyle(
-                        //       fontSize: 15,
-                        //       fontWeight: FontWeight.w600,
-                        //     ),
-                        //   ),
-                        // ),
-                        YMargin(50),
+                        DefaultCard(
+                          onPress: () {
+                            const url =
+                                'https://getairapy.app/terms-of-service';
+                            launchURL(url, context: context);
+                          },
+                          cardChild: Text(
+                            'Terms of service',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                        DefaultCard(
+                          onPress: () {
+                            const url = 'https://getairapy.app/privacy-policy';
+                            launchURL(url, context: context);
+                          },
+                          cardChild: Text(
+                            'Privacy policy',
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                        YMargin(45),
                         DefaultCard(
                           onPress: () async {
                             Auth().signOut();

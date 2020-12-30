@@ -10,6 +10,7 @@ class UserModel {
       location,
       stepGoal,
       mealPlan,
+      referralID,
       coachID;
   bool isActivated;
   DateTime creationDate;
@@ -25,6 +26,7 @@ class UserModel {
     this.location,
     this.stepGoal,
     this.mealPlan,
+    this.referralID,
     this.coachID,
     this.isActivated,
     this.creationDate,
@@ -41,6 +43,7 @@ class UserModel {
         location = map['location'],
         stepGoal = map['stepGoal'],
         mealPlan = map['mealPlan'],
+        referralID = map['referralID'],
         coachID = map['coachID'],
         isActivated = map['isActivated'],
         creationDate = map['creationDate'].toDate();
@@ -55,6 +58,7 @@ class UserModel {
         location = json['location'],
         stepGoal = json['stepGoal'],
         mealPlan = json['mealPlan'],
+        referralID = json['referralID'],
         coachID = json['coachID'],
         isActivated = json['isActivated'],
         creationDate = json['creationDate'].toDate();
@@ -70,6 +74,7 @@ class UserModel {
     data['location'] = this.location;
     data['stepGoal'] = this.stepGoal;
     data['mealPlan'] = this.mealPlan;
+    data['referralID'] = this.referralID;
     data['coachID'] = this.coachID;
     data['isActivated'] = this.isActivated;
     data['creationDate'] = this.creationDate;

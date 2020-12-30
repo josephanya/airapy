@@ -17,7 +17,7 @@ class TaskCard extends StatelessWidget {
       onTap: onPress,
       child: Container(
         width: double.infinity,
-        padding: EdgeInsets.symmetric(vertical: 15.5, horizontal: 16),
+        padding: EdgeInsets.symmetric(vertical: 14, horizontal: 16),
         decoration: BoxDecoration(
           color: white,
           borderRadius: BorderRadius.circular(13.0),
@@ -87,7 +87,7 @@ class StepsTaskCard extends StatelessWidget {
       onTap: onPress,
       child: Container(
         width: double.infinity,
-        padding: EdgeInsets.symmetric(vertical: 15.5, horizontal: 16),
+        padding: EdgeInsets.symmetric(vertical: 14, horizontal: 16),
         decoration: BoxDecoration(
           color: white,
           borderRadius: BorderRadius.circular(13.0),
