@@ -329,7 +329,7 @@ class _TrackFoodState extends State<TrackFood> {
                   ),
                 ],
               ),
-              YMargin(100),
+              YMargin(200),
             ],
           ),
         ),
